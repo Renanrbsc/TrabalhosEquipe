@@ -1,0 +1,6 @@
+---------------------------------
+--HOST: mysql.topskills.study
+--Datbase: topskills01
+--user: topskills01
+--pwd: ts2019
+---------------------------------
