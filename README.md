@@ -1,0 +1,2 @@
+# TrabalhosSQL
+Mysql, SQLite
