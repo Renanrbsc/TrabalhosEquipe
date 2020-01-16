@@ -1,29 +1,44 @@
 Tabelas SQL NO MySQL - 13-01-20
 ------------------------------------------------------
-CREATE TABLE Cliente (
-  ID INT(11) NOT NULL AUTO_INCREMENT,
-  Nome varchar(100) NOT NULL,
-  Sobrenome varchar(100) NOT NULL,
-  Idade int(11) NOT NULL,
-  PRIMARY KEY (ID) 
+CREATE TABLE CLIENTE (
+	CODIGO INT(11) NOT NULL,
+	NOME VARCHAR(100) NOT NULL,
+  SOBRENOME VARCHAR(100),
+	IDADE INT(3) NOT NULL,
+	GENERO VARCHAR(2) NOT NULL,
+	EMAIL VARCHAR(25) NOT NULL,
+	TELEFONE VARCHAR(50) NOT NULL,
+	PRIMARY KEY (CODIGO)
+)
+
+CREATE TABLE ENDERECO (
+	ID INT(11) NOT NULL AUTO_INCREMENT,
+	LOGRADOURO VARCHAR(100) NOT NULL,
+	NUMERO INT(11) NOT NULL,
+	SIGLA varchar(5) NOT NULL,
+	CIDADE VARCHAR(50) NOT NULL,
+	BAIRRO VARCHAR(50) NOT NULL,
+	CEP INT(11) NOT NULL,
+	PRIMARY KEY (ID)
 );
 
 ------------------------------------------------------
-CREATE TABLE Endereco (
-	ID INT(11) NOT NULL AUTO_INCREMENT,
-	LOGRADOURO varchar(50) NOT NULL,
-	NUMERO INT(5) NOT NULL,
-	COMPLEMENTO varchar(100) NOT NULL,
-	BAIRRO varchar(25) NOT NULL,
-	CIDADE varchar(25) NOT NULL,
-	CEP varchar(100) NOT NULL,
-	PRIMARY KEY (ID)
-);
-------------------------------------------------------
-ALTER TABLE CLIENTE ADD COLUMN ENDERECO_ID INT(11) AFTER IDADE
+ALTER TABLE CLIENTE ADD COLUMN ENDERECO_ID INT(11) AFTER TELEFONE
 
 ALTER TABLE CLIENTE ADD CONSTRAINT ENDERECO_FK FOREIGN KEY (ENDERECO_ID) REFERENCES ENDERECO (ID);
 ------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+------------------------------------------------------
+
 INSERT INTO RenanBerti (Nome,Sobrenome,Idade)
   VALUES ('Keunan','Passos',17), ('Lucas','Brito',18), ('Joao','Pessoa',40),
   		 ('Renan','Berti',21), ('Bruno','Berti',16), ('Gabriel','Parasky',8);
@@ -87,16 +102,3 @@ END;
 
 
 
-
-CREATE TABLE `cadastros` (
-	`CODIGO` INT(11) NOT NULL,
-	`NOME` VARCHAR(100) NOT NULL,
-	`IDADE` INT(3) NOT NULL,
-	`GENERO` VARCHAR(2) NOT NULL,
-	`EMAIL` VARCHAR(25) NOT NULL,
-	`TELEFONE` VARCHAR(50) NOT NULL DEFAULT '',
-	PRIMARY KEY (`CODIGO`)
-)
-COLLATE='utf8mb4_general_ci'
-ENGINE=InnoDB
-;
