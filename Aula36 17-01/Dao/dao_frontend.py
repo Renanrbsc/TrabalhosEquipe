@@ -1,7 +1,7 @@
 import MySQLdb
 from Model.frontend import FrontEnd
 
-class FrontEnd:
+class DaoFrontEnd:
     conexao = MySQLdb.connect(host = '127.0.0.1',
                               database = 'PadawanHBSIS',
                               user = 'root')
