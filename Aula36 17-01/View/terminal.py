@@ -45,8 +45,8 @@ elif op == 3:
     squad.name_squad = 'Homens de preto'
     squad.descricao = 'Smith'
     squad.numero_pessoas = 5
-    squad.linguagembackend.linguagembackend = 'Cobol'
-    squad.linguagemfrontend.linguagemfrontend = 'HTML'
+    squad.lingbackend.linguagembackend = 'Cobol'
+    squad.lingfrontend.linguagemfrontend = 'HTML'
     
     id_salvo = controller.alterar(squad, id)
     print(controller.listar_por_id(id))
