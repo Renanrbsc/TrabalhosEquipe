@@ -1,8 +1,8 @@
-from Dao.dao_backend import BackEnd
-from Model.backend import backEnd
+from Dao.dao_backend import DaoBackEnd
+from Model.backend import BackEnd
 
 class BackController:
-    dao = BackEnd()
+    dao = DaoBackEnd()
 
     def listar_todos(self):
         return self.dao.listar_todos()
@@ -19,3 +19,4 @@ class BackController:
 
     def deletar(self, id):
         self.dao.deletar(id)
+  
