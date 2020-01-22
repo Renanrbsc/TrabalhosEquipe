@@ -26,7 +26,7 @@ class DaoFrontEnd:
         )
         VALUES
         (
-            '{frontend.}'
+            '{frontend.lisguagemfrontend}'
         )"""
         self.cursor.execute(comando_sql)
         self.conexao.commit()
@@ -36,11 +36,7 @@ class DaoFrontEnd:
     def alterar(self, frontend:FrontEnd, id):
         comando_sql = f"""UPDATE FRONTEND
         SET 
-            NAME_SQUAD = '{squads.name_squad}',
-            DESCRICAO = '{squads.descricao}',
-            NUMERO_PESSOAS = {squads.numero_pessoas},
-            LINGUAGEMBACKEND = '{squads.linguagembackend}',
-            LINGUAGEMFRONTEND = '{squads.linguagemfrontend}'
+            LINGUAGEMFRONTEND = '{frontend.linguagemfrontend}'
         WHERE ID = {id}
         """
         self.cursor.execute(comando_sql)
