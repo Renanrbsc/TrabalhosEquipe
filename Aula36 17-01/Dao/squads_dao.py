@@ -1,11 +1,16 @@
 import MySQLdb
 from Model.squads import Squads 
+from Dao.dao_backend import BackEnd
+from Dao.dao_frontend import FrontEnd
 
 class SquadsDao:
     conexao = MySQLdb.connect(host = '127.0.0.1',
                               database = 'PadawanHBSIS',
                               user = 'root')
     cursor = conexao.cursor()
+    
+    dao_backend = BackEnd()
+    dao_frontend = FrontEnd() 
 
     def listar_todos(self):
         comando_sql = f"SELECT * FROM SQUADS_DEV"
