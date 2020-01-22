@@ -1,7 +1,5 @@
 import MySQLdb
-from Model.squads import Squads 
-from Dao.dao_backend import BackEnd
-from Dao.dao_frontend import FrontEnd
+from Model.squads import Squads
 
 class SquadsDao:
     conexao = MySQLdb.connect(host = '127.0.0.1',
