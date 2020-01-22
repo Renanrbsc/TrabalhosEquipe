@@ -11,11 +11,10 @@ class BackController:
         return self.dao.listar_por_id(id)
 
     def salvar(self, back:BackEnd):
-        id = self.dao.salvar(back)
-        return id
+        return self.dao.salvar(back)
 
-    def alterar(self, back:BackEnd, id):
-        self.dao.alterar(back, id)
+    def alterar(self, back:BackEnd):
+        self.dao.alterar(back)
 
     def deletar(self, id):
         self.dao.deletar(id)

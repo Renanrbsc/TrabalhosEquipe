@@ -22,22 +22,22 @@ class DaoBackEnd:
     def salvar(self, backend:BackEnd):
         comando_sql = f"""INSERT INTO BACKEND
         (
-            LINGUAGEMBACKEND,
+            LINGUAGEMBACKEND
         )
         VALUES
         (
-            '{backend.linguagembackend}',
+            '{backend.linguagembackend}'
         )"""
         self.cursor.execute(comando_sql)
         self.conexao.commit()
         id_inserido = self.cursor.lastrowid
         return id_inserido
 
-    def alterar(self, backend:BackEnd, id):
+    def alterar(self, backend:BackEnd):
         comando_sql = f"""UPDATE BACKEND
         SET 
-            LINGUAGEMBACKEND = '{backend.linguagembackend}',
-        WHERE ID = {id}
+            LINGUAGEMBACKEND = '{backend.linguagembackend}'
+        WHERE ID = {backend.id}
         """
         self.cursor.execute(comando_sql)
         self.conexao.commit()

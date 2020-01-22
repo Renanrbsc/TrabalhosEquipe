@@ -33,7 +33,7 @@ class DaoFrontEnd:
         id_inserido = self.cursor.lastrowid
         return id_inserido
 
-    def alterar(self, frontend:FrontEnd, id):
+    def alterar(self, frontend:FrontEnd):
         comando_sql = f"""UPDATE FRONTEND
         SET 
             LINGUAGEMFRONTEND = '{frontend.linguagemfrontend}'
