@@ -1,6 +1,6 @@
 import sys
-sys.path.append('C:\Users\900159\Documents\github renan\TrabalhosSQL\Aula36 17-01')
-sys.path.append('C:\Users\900145\Documents\TrabalhosSQL\Aula36 17-01')
+sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosSQL/Aula36 17-01')
+sys.path.append('C:/Users/900145/Documents/TrabalhosSQL/Aula36 17-01')
 from Controller.squads_controller import SquadsController
 from Model.squads import Squads
 
@@ -25,11 +25,11 @@ if op == 1:
 elif op == 2:
     print('-----Cadastrar SQUADS_DEV-----')
     
-    squad.name_squad = 'Homens de preto'
+    squad.name_squad = 'Homens de BRANCO'
     squad.descricao = 'Smith'
     squad.numero_pessoas = 5
-    squad.linguagembackend = 'Cobol'
-    squad.linguagemfrontend = 'HTML'
+    squad.linguagembackend.linguagembackend = 'Cobol'
+    squad.linguagemfrontend.linguagemfrontend = 'HTML'
     
     id_salvo = controller.salvar(squad)
     squad_dev = controller.listar_por_id(id_salvo)
@@ -43,8 +43,8 @@ elif op == 3:
     squad.name_squad = 'Homens de preto'
     squad.descricao = 'Smith'
     squad.numero_pessoas = 5
-    squad.linguagembackend = 'Cobol'
-    squad.linguagemfrontend = 'HTML'
+    squad.linguagembackend.linguagembackend = 'Cobol'
+    squad.linguagemfrontend.linguagemfrontend = 'HTML'
     
     id_salvo = controller.alterar(squad, id)
     print(controller.listar_por_id(id))
