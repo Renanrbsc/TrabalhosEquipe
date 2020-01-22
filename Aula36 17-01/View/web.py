@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import sys
-sys.path.append('C:/Users/900159/Documents/GitHub/TrabalhosPython/Aula36 17-01')
-sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosPython/Aula36 17-01')
+sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosSQL/Aula36 17-01')
+sys.path.append('C:/Users/900145/Documents/TrabalhosSQL/Aula36 17-01')
 sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosSQL/Aula36 17-01')
 from Controller.squads_controller import SquadsController
 from Model.squads import Squads
