@@ -8,7 +8,8 @@ linguagemFrontEnd VARCHAR(100) NOT NULL,
 PRIMARY KEY (CODIGO)
 );
 
------------------------------
+
+----------#testando tabelas com foreigh key-----------------------------------
 
 CREATE TABLE SQUAD (
 ID INT(11) NOT NULL AUTO_INCREMENT,
@@ -33,6 +34,9 @@ ID INT(11) NOT NULL AUTO_INCREMENT,
 LINGUAGEMFRONTEND VARCHAR(200) NOT NULL,
 PRIMARY KEY (ID)
 );
+
+---------------------------------------------
+
 
 CREATE TABLE SGBDS (
 ID INT(11) NOT NULL AUTO_INCREMENT,
