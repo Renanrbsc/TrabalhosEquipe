@@ -1,9 +1,8 @@
-from Dao.squads_dao import SquadsDao
-from Model.squads import Squads
+from Dao.dao_backend import BackEnd
+from Model.backend import backEnd
 
 class BackController:
     dao = BackEnd()
-    squad = Squads()
 
     def listar_todos(self):
         return self.dao.listar_todos()
@@ -11,7 +10,7 @@ class BackController:
     def listar_por_id(self, id):
         return self.dao.listar_por_id(id)
 
-    def salvar(self, squads:Squads):
+    def salvar(self, back=BackEnd):
         id = self.dao.salvar(squads)
         return id
 

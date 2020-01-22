@@ -3,7 +3,6 @@ from Model.squads import Squads
 
 class SquadsController:
     dao = SquadsDao()
-    squad = Squads()
 
     def listar_todos(self):
         return self.dao.listar_todos()
