@@ -1,7 +1,7 @@
 from Dao.squads_dao import SquadsDao
 from Model.squads import Squads
 
-class SquadsController:
+class FrontController:
     dao = SquadsDao()
     squad = Squads()
 
