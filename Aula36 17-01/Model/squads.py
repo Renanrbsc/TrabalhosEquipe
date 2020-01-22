@@ -5,7 +5,7 @@ class Squads:
     
     def __init__(self):   
         self.id = 0
-        self.name_squads = ''
+        self.name_squad = ''
         self.descricao = ''
         self.numero_pessoas = 0
         self.linguagembackend = BackEnd()
