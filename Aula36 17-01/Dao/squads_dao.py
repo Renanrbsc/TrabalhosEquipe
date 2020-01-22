@@ -34,7 +34,7 @@ class SquadsDao:
             '{squads.descricao}',
              {squads.numero_pessoas},
             {squads.linguagembackend.id},
-            {squads.linguagemfrontend.id}'
+            {squads.linguagemfrontend.id}
         )"""
         self.cursor.execute(comando_sql)
         self.conexao.commit()
@@ -48,7 +48,7 @@ class SquadsDao:
             DESCRICAO = '{squads.descricao}',
             NUMERO_PESSOAS = {squads.numero_pessoas},
             ID_BACKEND = {squads.linguagembackend.id},
-            ID_FRONTEND = '{squads.linguagemfrontend.id}'
+            ID_FRONTEND = {squads.linguagemfrontend.id}
         WHERE CODIGO = {squads.id}
         """
         self.cursor.execute(comando_sql)
