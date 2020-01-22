@@ -1,14 +1,14 @@
 import MySQLdb
-from Model.squads import Squads 
+from Model.backend import BackEnd
 
-class BackEnd:
+class DaoBackEnd:
     conexao = MySQLdb.connect(host = '127.0.0.1',
                               database = 'PadawanHBSIS',
                               user = 'root')
     cursor = conexao.cursor()
 
     def listar_todos(self):
-        comando_sql = f"SELECT * FROM SQUADS_DEV"
+        comando_sql = f"SELECT * FROM SQUAD_DEV"
         self.cursor.execute(comando_sql)
         resultado = self.cursor.fetchall()
         return resultado
@@ -19,7 +19,7 @@ class BackEnd:
         resultado = self.cursor.fetchone()
         return resultado
 
-    def salvar(self, squads:Squads):
+    def salvar(self, backend:BackEnd):
         comando_sql = f"""INSERT INTO SQUADS_DEV
         (
             NAME_SQUAD,
