@@ -1,5 +1,5 @@
 import MySQLdb
-from Model.squads import Squads 
+from Model.frontend import FrontEnd
 
 class FrontEnd:
     conexao = MySQLdb.connect(host = '127.0.0.1',
@@ -19,22 +19,21 @@ class FrontEnd:
         resultado = self.cursor.fetchone()
         return resultado
 
-    def salvar(self, squads:Squads):
+    def salvar(self, frontend:FrontEnd):
         comando_sql = f"""INSERT INTO FRONTEND
         (
-            LINGUAGEMBACKEND,
-            
+            LINGUAGEMBACKEND           
         )
         VALUES
         (
-            '{}'
+            '{frontend.}'
         )"""
         self.cursor.execute(comando_sql)
         self.conexao.commit()
         id_inserido = self.cursor.lastrowid
         return id_inserido
 
-    def alterar(self, squads:Squads, id):
+    def alterar(self, frontend:FrontEnd, id):
         comando_sql = f"""UPDATE FRONTEND
         SET 
             NAME_SQUAD = '{squads.name_squad}',
@@ -42,13 +41,13 @@ class FrontEnd:
             NUMERO_PESSOAS = {squads.numero_pessoas},
             LINGUAGEMBACKEND = '{squads.linguagembackend}',
             LINGUAGEMFRONTEND = '{squads.linguagemfrontend}'
-        WHERE CODIGO = {id}
+        WHERE ID = {id}
         """
         self.cursor.execute(comando_sql)
         self.conexao.commit()
 
     def deletar(self,id):
-        comando_sql = f"DELETE FROM FRONTEND WHERE CODIGO = {id}"
+        comando_sql = f"DELETE FROM FRONTEND WHERE ID = {id}"
         self.cursor.execute(comando_sql)
         self.conexao.commit()
         
