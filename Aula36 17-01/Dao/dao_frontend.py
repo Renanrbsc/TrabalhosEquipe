@@ -26,7 +26,7 @@ class DaoFrontEnd:
         )
         VALUES
         (
-            '{frontend.lisguagemfrontend}'
+            '{frontend.linguagemfrontend}'
         )"""
         self.cursor.execute(comando_sql)
         self.conexao.commit()
@@ -37,7 +37,7 @@ class DaoFrontEnd:
         comando_sql = f"""UPDATE FRONTEND
         SET 
             LINGUAGEMFRONTEND = '{frontend.linguagemfrontend}'
-        WHERE ID = {id}
+        WHERE ID = {frontend.id}
         """
         self.cursor.execute(comando_sql)
         self.conexao.commit()
