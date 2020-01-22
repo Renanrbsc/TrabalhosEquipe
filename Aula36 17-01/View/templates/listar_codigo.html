@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{titulo_app}} - Buscar por codigo</title>
+    <link rel="stylesheet" href="../static/layout.css">
+</head>
+<body>
+    <div class="retangulo">
+        <br>
+        <h1><div class="center"><label>{{titulo_app}}</label></div></h1>
+        <br>
+        <h2>
+        <h1><div class="center"><label>Codigo encontrado na Tabela</label></div></h1>
+        <table id = 'tabela-listas'>
+            <thead>
+                <tr>
+                    <th>Codigo</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Idade</th>
+                    <th>Genero</th>
+                    <th>Email</th>
+                    <th>Telefone</th>
+                    <th>Endereco_ID</th>
+                    <th>Logradouro</th>
+                    <th>Numero</th>
+                    <th>Sigla</th>
+                    <th>Cidade</th>
+                    <th>Regiao</th>
+                    <th>Cep</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ dados[0] }}</td>
+                    <td>{{ dados[1] }}</td>
+                    <td>{{ dados[2] }}</td>
+                    <td>{{ dados[3] }}</td>
+                    <td>{{ dados[4] }}</td>
+                    <td>{{ dados[5] }}</td>
+                    <td>{{ dados[6] }}</td>
+                    <td>{{ dados[7] if dados[7] else '' }}</td>
+                    <td>{{ dados[9] if dados[9] else '' }}</td>
+                    <td>{{ dados[10] if dados[10] else '' }}</td>
+                    <td>{{ dados[11] if dados[11] else '' }}</td>
+                    <td>{{ dados[12] if dados[12] else '' }}</td>
+                    <td>{{ dados[13] if dados[13] else '' }}</td>
+                    <td>{{ dados[14] if dados[14] else '' }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <h1><a class="btn-editar"  href="/editar?id={{ dados[0] }}&id_end={{ dados[7] }}" >Editar</a></h1>
+        <h1><a class="btn-excluir" href="/excluir?id={{ dados[0] }}&id_end={{ dados[7] }}">Excluir</a></h1>
+        <br>
+        <h2><a class = 'center-link' href="/">Voltar a tela inicial</a> <br/></h2>
+        <br>      
+    </div>
+</body>
+</html>
