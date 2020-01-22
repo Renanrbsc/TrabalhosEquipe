@@ -1,11 +1,11 @@
 class FrontEnd:
     
     def __init__(self):   
-        self.codigo: 0
+        self.id= 0
         self.linguagemfrontend = ''
     
     def __str__(self):
-        return f'{self.codigo};{self.linguagemfrontend}'
+        return f'{self.id};{self.linguagemfrontend}'
 
     
 

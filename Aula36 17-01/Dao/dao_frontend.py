@@ -22,7 +22,7 @@ class DaoFrontEnd:
     def salvar(self, frontend:FrontEnd):
         comando_sql = f"""INSERT INTO FRONTEND
         (
-            LINGUAGEMBACKEND           
+            LINGUAGEMFRONTEND           
         )
         VALUES
         (
