@@ -1,8 +1,11 @@
 class FrontEnd:
     
     def __init__(self):   
-        self.ID= 0
-        self.LINGUAGEMBACKEND = ''
-
+        self.codigo: 0
+        self.linguagemfrontend = ''
+    
     def __str__(self):
-        return f'{self.codigo};{self.LINGUAGEMBACKEND}'
+        return f'{self.codigo};{self.linguagemfrontend}'
+
+    
+
