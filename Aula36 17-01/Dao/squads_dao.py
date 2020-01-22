@@ -1,7 +1,5 @@
 import MySQLdb
-from Model.squads import Squads 
-from Dao.dao_backend import BackEnd
-from Dao.dao_frontend import FrontEnd
+from Model.squads import Squads
 
 class SquadsDao:
     conexao = MySQLdb.connect(host = '127.0.0.1',
@@ -9,17 +7,14 @@ class SquadsDao:
                               user = 'root')
     cursor = conexao.cursor()
     
-    dao_backend = BackEnd()
-    dao_frontend = FrontEnd() 
-
     def listar_todos(self):
-        comando_sql = f"SELECT * FROM SQUAD"
+        comando_sql = f"SELECT * FROM SQUAD AS S LEFT JOIN BACKEND AS B FRONTEND AS F ON S.ID_BACKEND = B.ID AND S.ID_FRONTEND = F.ID"
         self.cursor.execute(comando_sql)
         resultado = self.cursor.fetchall()
         return resultado
         
     def listar_por_id(self,id):
-        comando_sql = f"SELECT * FROM SQUAD WHERE CODIGO = {id}"
+        comando_sql = f"SELECT * FROM SQUAD AS S LEFT JOIN BACKEND AS B FRONTEND AS F ON S.ID_BACKEND = B.ID AND S.ID_FRONTEND = F.ID WHERE S.ID = {id}"
         self.cursor.execute(comando_sql)
         resultado = self.cursor.fetchone()
         return resultado
@@ -30,16 +25,16 @@ class SquadsDao:
             NAME_SQUAD,
             DESCRICAO,
             NUMERO_PESSOAS,
-            LINGUAGEMBACKEND,
-            LINGUAGEMFRONTEND
+            ID_BACKEND,
+            ID_FRONTEND
         )
         VALUES
         (
             '{squads.name_squad}',
             '{squads.descricao}',
              {squads.numero_pessoas},
-            '{squads.linguagembackend}',
-            '{squads.linguagemfrontend}'
+            {squads.linguagembackend.id},
+            {squads.linguagemfrontend.id}'
         )"""
         self.cursor.execute(comando_sql)
         self.conexao.commit()
