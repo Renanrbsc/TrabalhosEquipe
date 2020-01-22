@@ -1,8 +1,8 @@
 from Dao.squads_dao import SquadsDao
 from Model.squads import Squads
 
-class SquadsController:
-    dao = SquadsDao()
+class BackController:
+    dao = BackEnd()
     squad = Squads()
 
     def listar_todos(self):
