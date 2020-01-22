@@ -14,7 +14,7 @@ class DaoBackEnd:
         return resultado
         
     def listar_por_id(self,id):
-        comando_sql = f"SELECT * FROM BACKEND WHERE CODIGO = {id}"
+        comando_sql = f"SELECT * FROM BACKEND WHERE ID = {id}"
         self.cursor.execute(comando_sql)
         resultado = self.cursor.fetchone()
         return resultado

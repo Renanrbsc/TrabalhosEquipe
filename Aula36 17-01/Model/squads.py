@@ -8,11 +8,11 @@ class Squads:
         self.name_squad = ''
         self.descricao = ''
         self.numero_pessoas = 0
-        self.linguagembackend = BackEnd()
-        self.linguagemfrontend = FrontEnd()
+        self.lingbackend = BackEnd()
+        self.lingfrontend = FrontEnd()
     
     def __str__(self):
-        return f'{self.id};{self.name_squad};{self.descricao};{self.numero_pessoas};{self.linguagembackend};{self.linguagemfrontend}'
+        return f'{self.id};{self.name_squad};{self.descricao};{self.numero_pessoas};{self.lingbackend};{self.lingfrontend}'
 
 
 

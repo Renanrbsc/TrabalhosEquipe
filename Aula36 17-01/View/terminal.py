@@ -30,8 +30,8 @@ elif op == 2:
     squad.name_squad = 'Homens de BRANCO'
     squad.descricao = 'Smith'
     squad.numero_pessoas = 5
-    squad.linguagembackend.linguagembackend = 'Cobol'
-    squad.linguagemfrontend.linguagemfrontend = 'HTML'
+    squad.lingbackend.linguagembackend = 'Cobol'
+    squad.lingfrontend.linguagemfrontend = 'HTML'
     
     id_salvo = controller.salvar(squad)
     squad_dev = controller.listar_por_id(id_salvo)
