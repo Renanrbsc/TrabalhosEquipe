@@ -1,9 +1,9 @@
-from Dao.squads_dao import SquadsDao
-from Model.squads import Squads
+from Dao.dao_frontend import DaoFrontEnd
+from Model.frontend import FrontEnd
 
 class FrontController:
-    dao = SquadsDao()
-    squad = Squads()
+    dao = DaoFrontEnd()
+    
 
     def listar_todos(self):
         return self.dao.listar_todos()
@@ -11,12 +11,12 @@ class FrontController:
     def listar_por_id(self, id):
         return self.dao.listar_por_id(id)
 
-    def salvar(self, squads:Squads):
-        id = self.dao.salvar(squads)
+    def salvar(self, front:FrontEnd:
+        id = self.dao.salvar(front)
         return id
 
-    def alterar(self, squads:Squads, id):
-        self.dao.alterar(squads, id)
+    def alterar(self, front:FrontEnd, id):
+        self.dao.alterar(front, id)
 
     def deletar(self, id):
         self.dao.deletar(id)
