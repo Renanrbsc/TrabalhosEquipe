@@ -1,4 +1,4 @@
-class Squads:
+class BackEnd:
     
     def __init__(self):   
         self.codigo: 0

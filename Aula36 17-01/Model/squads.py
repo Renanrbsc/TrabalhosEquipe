@@ -1,5 +1,5 @@
-from Dao.dao_frontend import FrontEnd
-from Dao.dao_backend import BackEnd
+from Model.frontend import FrontEnd
+from Model.backend import BackEnd
 
 class Squads:
     
