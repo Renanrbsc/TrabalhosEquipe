@@ -8,54 +8,42 @@ class DaoBackEnd:
     cursor = conexao.cursor()
 
     def listar_todos(self):
-        comando_sql = f"SELECT * FROM SQUAD_DEV"
+        comando_sql = f"SELECT * FROM BACKEND"
         self.cursor.execute(comando_sql)
         resultado = self.cursor.fetchall()
         return resultado
         
     def listar_por_id(self,id):
-        comando_sql = f"SELECT * FROM SQUADS_DEV WHERE CODIGO = {id}"
+        comando_sql = f"SELECT * FROM BACKEND WHERE CODIGO = {id}"
         self.cursor.execute(comando_sql)
         resultado = self.cursor.fetchone()
         return resultado
 
     def salvar(self, backend:BackEnd):
-        comando_sql = f"""INSERT INTO SQUADS_DEV
+        comando_sql = f"""INSERT INTO BACKEND
         (
-            NAME_SQUAD,
-            DESCRICAO,
-            NUMERO_PESSOAS,
             LINGUAGEMBACKEND,
-            LINGUAGEMFRONTEND
         )
         VALUES
         (
-            '{squads.name_squad}',
-            '{squads.descricao}',
-             {squads.numero_pessoas},
-            '{squads.linguagembackend}',
-            '{squads.linguagemfrontend}'
+            '{backend.linguagembackend}',
         )"""
         self.cursor.execute(comando_sql)
         self.conexao.commit()
         id_inserido = self.cursor.lastrowid
         return id_inserido
 
-    def alterar(self, squads:Squads, id):
-        comando_sql = f"""UPDATE SQUADS_DEV
+    def alterar(self, backend:BackEnd, id):
+        comando_sql = f"""UPDATE BACKEND
         SET 
-            NAME_SQUAD = '{squads.name_squad}',
-            DESCRICAO = '{squads.descricao}',
-            NUMERO_PESSOAS = {squads.numero_pessoas},
-            LINGUAGEMBACKEND = '{squads.linguagembackend}',
-            LINGUAGEMFRONTEND = '{squads.linguagemfrontend}'
-        WHERE CODIGO = {id}
+            LINGUAGEMBACKEND = '{backend.linguagembackend}',
+        WHERE ID = {id}
         """
         self.cursor.execute(comando_sql)
         self.conexao.commit()
 
     def deletar(self,id):
-        comando_sql = f"DELETE FROM SQUADS_DEV WHERE CODIGO = {id}"
+        comando_sql = f"DELETE FROM BACKEND WHERE ID = {id}"
         self.cursor.execute(comando_sql)
         self.conexao.commit()
         
