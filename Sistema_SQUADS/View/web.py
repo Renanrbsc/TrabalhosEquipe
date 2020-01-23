@@ -61,7 +61,7 @@ def cadastrar():
     return render_template('cadastrar.html', titulo_app = name)
 
 @app.route('/cadastrar/inserir')
-def cadastrar():
+def cadastrado():
     squad.name_squad = request.args['nome']
     squad.descricao = request.args['desc']
     squad.numero_pessoas = request.args['integ']
