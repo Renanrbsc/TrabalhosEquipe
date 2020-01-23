@@ -28,7 +28,6 @@ if op == 1:
     print('-----Listar todos-----')
     print(controller.listar_todos())
 
-
 elif op == 2:
     print('-----Cadastrar SQUADS_DEV-----')
     
@@ -42,7 +41,6 @@ elif op == 2:
     id_salvo = controller.salvar(squad)
     squad_dev = controller.listar_por_id(id_salvo)
     print(squad_dev)
-    
     
 elif op == 3:
     print('-----Cadastrar  Linguagens-----')
@@ -64,24 +62,31 @@ elif op == 4:
 
     id = int(input('Informe o codigo do SQUAD_DEV: '))
     tupla = controller.listar_por_id(id)
-    if None in squad.lingbackend.id:
-        squad.lingbackend.id = tupla[4]
-    if None in squad.lingfrontend.id:
-        squad.lingfrontend.id = tupla[5]
-    if None in squad.lingsgbds.id:
-        squad.lingsgbds.id = tupla[6]
-    
+    print(tupla)
+
     squad.name_squad = 'Homens de preto'
     squad.descricao = 'Smith'
     squad.numero_pessoas = 5
-    squad.lingbackend.id = 1
-    squad.lingfrontend.id = 1
-    squad.lingsgbds.id = 1
+    print('Deseja adicionar linguagens ao SQUAD? (1-Sim 2-Nao) ')
+    op = input()
+    if op == 1:
+        controller.listar_linguagens()
+        squad.lingbackend.id = int(input('Digite a ID da linguagem BACKEND: '))
+        squad.lingfrontend.id = int(input('Digite a ID da linguagem FRONTEND: '))
+        squad.lingsgbds.id = int(input('Digite a ID da linguagem SGBDS: '))
 
+    if tupla[4] == None and squad.lingbackend.id == None:
+        squad.lingbackend.id = 0
+    if tupla[5] == None and squad.lingfrontend.id == None:
+        squad.lingfrontend.id = 0
+    if tupla[6] == None and squad.lingsgbds.id == None:
+        squad.lingsgbds.id = 0
 
+    controller.alterar_squad(squad, id)
 
-    print(controller.listar_por_id(id))
-    controller.alterar(squad)
+    tupla = controller.listar_por_id(id)
+    print(tupla)
+
 
 elif op == 5:
     print('-----Deletar Cliente-----')
