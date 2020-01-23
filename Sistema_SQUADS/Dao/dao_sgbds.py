@@ -36,7 +36,7 @@ class DaoSgbds:
     def alterar(self, db:Sgbds):
         comando_sql = f"""UPDATE SGBDS
         SET 
-            LINGUAGEMFRONTEND = '{db.nome_db}'
+            NOME_DB = '{db.nome_db}'
         WHERE ID = {db.id}
         """
         self.cursor.execute(comando_sql)

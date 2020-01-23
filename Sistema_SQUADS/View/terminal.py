@@ -69,8 +69,8 @@ elif op == 4:
     squad.numero_pessoas = 5
     
     squad.lingbackend.linguagembackend = input('Digite a linguagem BACKEND: ')
-    squad.lingfrontend.lingfrontend = input('Digite a linguagem FRONTEND: ')
-    squad.lingsgbds.lingsgbds = input('Digite a linguagem SGBDS: ')
+    squad.lingfrontend.linguagemfrontend = input('Digite a linguagem FRONTEND: ')
+    squad.lingsgbds.nome_db = input('Digite a linguagem SGBDS: ')
 
     controller.alterar(squad,id,tupla)
 
