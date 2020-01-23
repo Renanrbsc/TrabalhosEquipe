@@ -12,8 +12,7 @@ class FrontController:
         return self.dao.listar_por_id(id)
 
     def salvar(self, front:FrontEnd):
-        return self.dao.salvar(front)
-        
+        return self.dao.salvar(front)     
 
     def alterar(self, front:FrontEnd):
         self.dao.alterar(front)

@@ -36,6 +36,7 @@ elif op == 2:
     squad.numero_pessoas = 5
     squad.lingbackend.linguagembackend = 'Cobol'
     squad.lingfrontend.linguagemfrontend = 'HTML'
+    squad.lingsgbds.nome_db = 'SQLite'
     
     id_salvo = controller.salvar(squad)
     squad_dev = controller.listar_por_id(id_salvo)
@@ -51,7 +52,8 @@ elif op == 3:
     squad.numero_pessoas = 5
     squad.lingbackend.linguagembackend = 'Cobol'
     squad.lingfrontend.linguagemfrontend = 'HTML'
-    
+    squad.lingsgbds.nome_db = 'SQLite'
+
     print(controller.listar_por_id(id))
     id_salvo = controller.alterar(squad, id)
 

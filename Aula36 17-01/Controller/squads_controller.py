@@ -20,6 +20,11 @@ class SquadsController:
         return self.dao.salvar(squads)
 
     def alterar(self, squads:Squads, id):
+        tupla = self.dao.listar_por_id(id)
+        back_id = tupla[4]
+        
+        back_id = tupla[5]
+
         self.dao.alterar(squads, id)
 
     def deletar(self, id):

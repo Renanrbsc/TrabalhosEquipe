@@ -8,13 +8,13 @@ class SquadsDao:
     cursor = conexao.cursor()
     
     def listar_todos(self):
-        comando_sql = f"SELECT * FROM SQUAD AS S LEFT JOIN BACKEND AS B ON S.ID_BACKEND = B.ID INNER JOIN FRONTEND AS F ON S.ID_FRONTEND = F.ID"
+        comando_sql = f"SELECT * FROM SQUAD AS S LEFT JOIN BACKEND AS B ON S.ID_BACKEND = B.ID INNER JOIN FRONTEND AS F ON S.ID_FRONTEND = F.ID INNER JOIN SGBDS AS D ON S.ID_SGBDS = D.ID"
         self.cursor.execute(comando_sql)
         resultado = self.cursor.fetchall()
         return resultado
         
     def listar_por_id(self,id):
-        comando_sql = f"SELECT * FROM SQUAD AS S LEFT JOIN BACKEND AS B ON S.ID_BACKEND = B.ID INNER JOIN FRONTEND AS F ON S.ID_FRONTEND = F.ID WHERE S.ID = {id}"
+        comando_sql = f"SELECT * FROM SQUAD AS S LEFT JOIN BACKEND AS B ON S.ID_BACKEND = B.ID INNER JOIN FRONTEND AS F ON S.ID_FRONTEND = F.ID INNER JOIN SGBDS AS D ON S.ID_SGBDS = D.ID WHERE S.ID = {id}"
         self.cursor.execute(comando_sql)
         resultado = self.cursor.fetchone()
         return resultado
