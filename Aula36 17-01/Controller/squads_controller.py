@@ -19,8 +19,8 @@ class SquadsController:
         squads.lingfrontend.id = self.frontend_controller.salvar(squads.lingfrontend)
         return self.dao.salvar(squads)
 
-    def alterar(self, squads:Squads):
-        self.dao.alterar(squads)
+    def alterar(self, squads:Squads, id):
+        self.dao.alterar(squads, id)
 
     def deletar(self, id):
         self.dao.deletar(id)

@@ -9,7 +9,7 @@ from Model.squads import Squads
 def menu():
     print('*********************************')
     print('* 1- Listar por codigo de Squad * #Comando funcionando')
-    print('* 2- Cadastrar Squad Dev        * #Erro de foreign key')
+    print('* 2- Cadastrar Squad Dev        * #Comando funcionando')
     print('* 3- Alterar Squad Dev          * # ')
     print('* 4- Deletar Squad Dev          * # ')
     print('*********************************')
