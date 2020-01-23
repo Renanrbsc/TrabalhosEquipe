@@ -78,8 +78,17 @@ def cadastrado():
 
     return render_template('cadastrado.html', titulo_app = name, dados = squad_dev)
 
+@app.route('/cadastrar/ling')
+def cadastrar_squad():
+    return render_template('cadastrar_ling.html', titulo_app = name)
 
+@app.route('/cadastrar/ling/dados')
+def cadastrar_squad():
+    return render_template('cadastrar_linguagens.html', titulo_app = name)
 
+@app.route('/cadastrar/ling/dados/cadastrado')
+def cadastrar_squad():
+    return render_template('cadastrado_ling.html', titulo_app = name)
 
 
 

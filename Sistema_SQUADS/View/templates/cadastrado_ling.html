@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../static/layout.css">
+</head>
+<body>
+    <div class="retangulo">
+        <br>
+        <h1 style = "text-align: center" class = 'center'>{{titulo_app}}</h1>
+        <div>
+            <br><br>
+            <h1><p style = "margin-left: 15%; margin-right: 15%; text-align: center" class = 'title-center'>Cadastro Inserido</p></h1>
+            <br>
+            <table id = 'tabela-listas'>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>LINGUAGEM</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{ dados[0] }}</td>
+                        <td>{{ dados[1] }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br>
+        <br>
+    <br>
+    <h2><a class = 'center-link' href="/">Voltar a tela inicial</a> <br/></h2>
+    <br>      
+    </div>
+</body>
+</html>
