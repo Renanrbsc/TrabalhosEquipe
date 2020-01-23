@@ -26,7 +26,7 @@ def inicio():
 
 @app.route('/listar')
 def listar():
-    return render_template('listar_menu.html', titulo_app = name)
+    return render_template('listar.html', titulo_app = name)
 
 @app.route('/listar/todos')
 def listar_todos():
