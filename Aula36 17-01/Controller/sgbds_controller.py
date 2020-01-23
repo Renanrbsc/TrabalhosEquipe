@@ -1,7 +1,7 @@
 from Dao.dao_sgbds import DaoSgbds
 from Model.sgbds import Sgbds
 
-class FrontController:
+class SgbdsController:
     dao = DaoSgbds()
     
 

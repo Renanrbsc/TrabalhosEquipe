@@ -26,7 +26,8 @@ class SquadsDao:
             DESCRICAO,
             NUMERO_PESSOAS,
             ID_BACKEND,
-            ID_FRONTEND
+            ID_FRONTEND,
+            ID_SGBDS
         )
         VALUES
         (
@@ -34,7 +35,8 @@ class SquadsDao:
             '{squads.descricao}',
              {squads.numero_pessoas},
             {squads.lingbackend.id},
-            {squads.lingfrontend.id}
+            {squads.lingfrontend.id},
+            {squads.lingsgbds.id}
         )"""
         self.cursor.execute(comando_sql)
         self.conexao.commit()
@@ -48,7 +50,8 @@ class SquadsDao:
             DESCRICAO = '{squads.descricao}',
             NUMERO_PESSOAS = {squads.numero_pessoas},
             ID_BACKEND = {squads.lingbackend.id},
-            ID_FRONTEND = {squads.lingfrontend.id}
+            ID_FRONTEND = {squads.lingfrontend.id},
+            ID_SGBDS = {squads.lingsgbds.id}
         WHERE ID = {id}
         """
         self.cursor.execute(comando_sql)
