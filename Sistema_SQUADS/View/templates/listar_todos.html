@@ -18,39 +18,37 @@
         <table id = 'tabela-listas'>
             <thead>
                 <tr>
-                    <th>Codigo</th>
-                    <th>Nome</th>
-                    <th>Sobrenome</th>
-                    <th>Idade</th>
-                    <th>Genero</th>
-                    <th>Email</th>
-                    <th>Telefone</th>
-                    <th>Endereco_ID</th>
-                    <th>Logradouro</th>
-                    <th>Numero</th>
-                    <th>Sigla</th>
-                    <th>Cidade</th>
-                    <th>Regiao</th>
-                    <th>Cep</th>
+                    <th>ID</th>
+                    <th>NAME_SQUAD</th>
+                    <th>DESCRICAO</th>
+                    <th>NUMERO_PESSOAS</th>
+                    <th>ID_BACK</th>
+                    <th>ID_FRONT</th>
+                    <th>ID_SGBD</th>
+                    <th>ID</th>
+                    <th>LINGUAGEMBACKEND</th>
+                    <th>ID</th>
+                    <th>LINGUAGEMFRONT</th>
+                    <th>ID</th>
+                    <th>LINGUAGEMSGBD</th>
                 </tr>
             </thead>
             <tbody>
                 {% for p in lista %}
                 <tr>
-                    <td>{{ p[0] }}</td>
-                    <td>{{ p[1] }}</td>
-                    <td>{{ p[2] }}</td>
-                    <td>{{ p[3] }}</td>
-                    <td>{{ p[4] }}</td>
-                    <td>{{ p[5] }}</td>
-                    <td>{{ p[6] }}</td>
-                    <td>{{ p[7] if p[7] else '' }}</td>
-                    <td>{{ p[9] if p[9] else '' }}</td>
-                    <td>{{ p[10] if p[10] else '' }}</td>
-                    <td>{{ p[11] if p[11] else '' }}</td>
-                    <td>{{ p[12] if p[12] else '' }}</td>
-                    <td>{{ p[13] if p[13] else '' }}</td>
-                    <td>{{ p[14] if p[14] else '' }}</td>
+                    <td>{{ p[0]  }}</td>
+                    <td>{{ p[1]  }}</td>
+                    <td>{{ p[2]  }}</td>
+                    <td>{{ p[3]  }}</td>
+                    <td>{{ p[4]  }}</td>
+                    <td>{{ p[5]  }}</td>
+                    <td>{{ p[6]  }}</td>
+                    <td>{{ p[7]  }}</td>
+                    <td>{{ p[8]  }}</td>
+                    <td>{{ p[9]  }}</td>
+                    <td>{{ p[10] }}</td>
+                    <td>{{ p[11] }}</td>
+                    <td>{{ p[12] }}</td>
                 </tr>
                 {% endfor %}
             </tbody>
