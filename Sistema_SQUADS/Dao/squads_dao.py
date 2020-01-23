@@ -43,7 +43,7 @@ class SquadsDao:
         id_inserido = self.cursor.lastrowid
         return id_inserido
 
-    def alterar(self, squads:Squads, id):
+    def alterar(self, squads:Squads):
         comando_sql = f"""UPDATE SQUAD
         SET 
             NAME_SQUAD = '{squads.name_squad}',
@@ -52,7 +52,7 @@ class SquadsDao:
             ID_BACKEND = {squads.lingbackend.id},
             ID_FRONTEND = {squads.lingfrontend.id},
             ID_SGBDS = {squads.lingsgbds.id}
-        WHERE ID = {id}
+        WHERE ID = {squads.id}
         """
         self.cursor.execute(comando_sql)
         self.conexao.commit()
