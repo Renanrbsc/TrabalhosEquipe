@@ -3,6 +3,7 @@ sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosEquipe/Sistema_
 sys.path.append('C:/Users/900145/Documents/TrabalhosEquipe/Sistema_SQUADS')
 sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosEquipe/Sistema_SQUADS')
 sys.path.append('C:/Users/900159/Documents/GitHub/TrabalhosEquipe/Sistema_SQUADS')
+sys.path.append('C:/Users/900145/Documents/TrabalhosEquipe/Sistema_SQUADS')
 
 from Controller.squads_controller import SquadsController
 from Model.squads import Squads
@@ -35,9 +36,9 @@ elif op == 2:
     squad.name_squad = 'Homens de BRANCO'
     squad.descricao = 'Smith'
     squad.numero_pessoas = 5
-    squad.lingbackend.id = 2
-    squad.lingfrontend.id = 2
-    squad.lingsgbds.id = 3
+    squad.lingbackend.id = 1
+    squad.lingfrontend.id = 1
+    squad.lingsgbds.id =1
     
     id_salvo = controller.salvar(squad)
     squad_dev = controller.listar_por_id(id_salvo)
@@ -65,9 +66,9 @@ elif op == 4:
     tupla = controller.listar_por_id(id)
     print(tupla)
 
-    squad.name_squad = 'Homens de preto'
-    squad.descricao = 'Smith'
-    squad.numero_pessoas = 5
+    squad.name_squad = 'ola'
+    squad.descricao = 'tupla'
+    squad.numero_pessoas = 3
     
     squad.lingbackend.linguagembackend = input('Digite a linguagem BACKEND: ')
     squad.lingfrontend.linguagemfrontend = input('Digite a linguagem FRONTEND: ')
