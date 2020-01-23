@@ -1,5 +1,5 @@
 import sys
-sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosSQL/Sistema_SQUADS')
+sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosEquipe/Sistema_SQUADS')
 sys.path.append('C:/Users/900145/Documents/TrabalhosSQL/Sistema_SQUADS')
 sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosSQL/Sistema_SQUADS')
 
