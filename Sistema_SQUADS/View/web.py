@@ -82,13 +82,22 @@ def cadastrado():
 def cadastrar_linguagens():
     return render_template('cadastrar_ling.html', titulo_app = name)
 
-@app.route('/cadastrar/ling/dados')
-def cadastrar_tipo_ling():
+@app.route('/cadastrar/ling/back')
+def cadastrar_tipo_back():
     return render_template('cadastrar_linguagens.html', titulo_app = name)
 
-@app.route('/cadastrar/ling/dados/cadastrado')
-def cadastrar_salvar_ling():
-    return render_template('cadastrado_ling.html', titulo_app = name)
+
+@app.route('/cadastrar/ling/front')
+def cadastrar_tipo_front():
+    return render_template('cadastrar_linguagens.html', titulo_app = name)
+
+@app.route('/cadastrar/ling/banco')
+def cadastrar_tipo_banco():
+    return render_template('cadastrar_linguagens.html', titulo_app = name)
+
+@app.route('/cadastrar/ling/cadastrado')
+def cadastrar_salvar():
+    return render_template('cadastrado_ling_salvo.html', titulo_app = name)
 
 
 
