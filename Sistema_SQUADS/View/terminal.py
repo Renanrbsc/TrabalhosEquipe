@@ -1,7 +1,7 @@
 import sys
-sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosSQL/Aula36 17-01')
-sys.path.append('C:/Users/900145/Documents/TrabalhosSQL/Aula36 17-01')
-sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosSQL/Aula36 17-01')
+sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosSQL/Sistema_SQUADS')
+sys.path.append('C:/Users/900145/Documents/TrabalhosSQL/Sistema_SQUADS')
+sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosSQL/Sistema_SQUADS')
 
 from Controller.squads_controller import SquadsController
 from Model.squads import Squads

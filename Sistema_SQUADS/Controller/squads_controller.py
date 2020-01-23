@@ -24,6 +24,11 @@ class SquadsController:
         return self.dao.salvar(squads)
 
     def alterar(self, squads:Squads, id):
+
+        squads.lingbackend.id = self.backend_controller.salvar(squads.lingbackend) 
+        squads.lingfrontend.id = self.frontend_controller.salvar(squads.lingfrontend)
+        squads.lingsgbds.id = self.sgbds_controller.salvar(squads.lingsgbds)
+        
         print(self.dao.listar_por_id(id))
         self.dao.alterar(squads, id)
 
