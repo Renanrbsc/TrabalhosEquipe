@@ -2,6 +2,7 @@ import sys
 sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosEquipe/Sistema_SQUADS')
 sys.path.append('C:/Users/900145/Documents/TrabalhosEquipe/Sistema_SQUADS')
 sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosEquipe/Sistema_SQUADS')
+sys.path.append('C:/Users/900159/Documents/GitHub/TrabalhosEquipe/Sistema_SQUADS')
 
 from Controller.squads_controller import SquadsController
 from Model.squads import Squads
