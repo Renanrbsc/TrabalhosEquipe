@@ -12,9 +12,9 @@ def menu():
     print('*********************************')
     print('* 1- Listar por codigo de Squad *')
     print('* 2- Cadastrar Squad Dev        *')
-    #print('* 3- Cadastrar Linguagem        * ')
-    print('* 4- Alterar Squad Dev          *')
-    print('* 5- Deletar Squad Dev          * # testando')
+    print('* 3- Alterar Squad Dev          *')
+    print('* 4- Deletar Squad Dev          * # testando')
+    #print('* 5- Cadastrar Linguagem        * ')
     print('*********************************')
     return int(input('* Digite a opcao: '))
 
@@ -43,23 +43,8 @@ elif op == 2:
     id_salvo = controller.salvar(squad)
     squad_dev = controller.listar_por_id(id_salvo)
     print(squad_dev)
-    
-# elif op == 3:
-#     print('-----Cadastrar  Linguagens-----')
-#     print('-----1-BACK 2-FRONT 3-SGBD-----')
-#     op = int(input('Digite a opcao: '))
 
-#     if op == 1:
-#         squad.lingbackend.linguagembackend = input('Digite a linguagem BACKEND: ')
-#         print(controller.salvar_back(squad))
-#     elif op == 2:
-#         squad.lingfrontend.linguagemfrontend = input('Digite a linguagem FRONTEND: ')
-#         print(controller.salvar_front(squad))
-#     elif op == 3:
-#         squad.lingsgbds.nome_db = input('Digite a linguagem SGBD: ')
-#         print(controller.salvar_sgbd(squad)) 
-
-elif op == 4:
+elif op == 3:
     print('-----Alterar SQUAD-LING-----')
 
     id = int(input('Informe o codigo do SQUAD_DEV: '))
@@ -79,16 +64,45 @@ elif op == 4:
     tupla = controller.listar_por_id(id)
     print(tupla)
 
-
-elif op == 5:
+elif op == 4:
     print('-----Deletar Cliente-----')
 
     id = int(input('Informe o codigo do SQUAD_DEV: '))
     print(controller.listar_por_id(id))
 
     controller.deletar(id)
-    
+
     print(controller.listar_por_id(id))
+    
+# elif op == 5:
+#     print('-----Cadastrar  Linguagens-----')
+#     print('-----1-BACK 2-FRONT 3-SGBD-----')
+#     op = int(input('Digite a opcao: '))
+
+#     if op == 1:
+#         squad.lingbackend.linguagembackend = input('Digite a linguagem BACKEND: ')
+#         print(controller.salvar_back(squad))
+#     elif op == 2:
+#         squad.lingfrontend.linguagemfrontend = input('Digite a linguagem FRONTEND: ')
+#         print(controller.salvar_front(squad))
+#     elif op == 3:
+#         squad.lingsgbds.nome_db = input('Digite a linguagem SGBD: ')
+#         print(controller.salvar_sgbd(squad)) 
+
+#elif op == 6:
+#     print('-----Alterar  Linguagens-----')
+#     print('-----1-BACK 2-FRONT 3-SGBD-----')
+#     op = int(input('Digite a opcao: '))
+
+#     if op == 1:
+#         squad.lingbackend.linguagembackend = input('Digite a linguagem BACKEND: ')
+#         print(controller.salvar_back(squad))
+#     elif op == 2:
+#         squad.lingfrontend.linguagemfrontend = input('Digite a linguagem FRONTEND: ')
+#         print(controller.salvar_front(squad))
+#     elif op == 3:
+#         squad.lingsgbds.nome_db = input('Digite a linguagem SGBD: ')
+#         print(controller.salvar_sgbd(squad)) 
 
 else:
     print('Estou perdido!')
