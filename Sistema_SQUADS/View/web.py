@@ -64,10 +64,10 @@ def cadastrar():
 def cadastrado():
     squad.name_squad = request.args['nome']
     squad.descricao = request.args['desc']
-    squad.numero_pessoas = request.args['integ']
-    squad.lingbackend.id = request.args['id_back']
-    squad.lingfrontend.id = request.args['id_front']
-    squad.lingsgbds.id = request.args['id_sgbd']
+    squad.numero_pessoas = int(request.args['integ'])
+    squad.lingbackend.id = int(request.args['id_back'])
+    squad.lingfrontend.id = int(request.args['id_front'])
+    squad.lingsgbds.id = int(request.args['id_sgbd'])
 
     id_salvo = sqcontroller.salvar(squad) 
     squad_dev = sqcontroller.listar_por_id(id_salvo)
