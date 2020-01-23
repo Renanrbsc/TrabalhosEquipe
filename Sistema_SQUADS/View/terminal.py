@@ -67,22 +67,12 @@ elif op == 4:
     squad.name_squad = 'Homens de preto'
     squad.descricao = 'Smith'
     squad.numero_pessoas = 5
-    print('Deseja adicionar linguagens ao SQUAD? (1-Sim 2-Nao) ')
-    op = input()
-    if op == 1:
-        controller.listar_linguagens()
-        squad.lingbackend.id = int(input('Digite a ID da linguagem BACKEND: '))
-        squad.lingfrontend.id = int(input('Digite a ID da linguagem FRONTEND: '))
-        squad.lingsgbds.id = int(input('Digite a ID da linguagem SGBDS: '))
+    
+    squad.lingbackend.linguagembackend = input('Digite a linguagem BACKEND: ')
+    squad.lingfrontend.lingfrontend = input('Digite a linguagem FRONTEND: ')
+    squad.lingsgbds.lingsgbds = input('Digite a linguagem SGBDS: ')
 
-    if tupla[4] == None and squad.lingbackend.id == None:
-        squad.lingbackend.id = 1
-    if tupla[5] == None and squad.lingfrontend.id == None:
-        squad.lingfrontend.id = 1
-    if tupla[6] == None and squad.lingsgbds.id == None:
-        squad.lingsgbds.id = 1
-
-    controller.alterar_squad(squad, id)
+    controller.alterar(squad,id,tupla)
 
     tupla = controller.listar_por_id(id)
     print(tupla)
