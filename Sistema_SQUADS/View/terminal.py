@@ -33,7 +33,7 @@ if op == 1:
 elif op == 2:
     print('-----Cadastrar SQUADS_DEV-----')
     
-    squad.name_squad = 'Homens de BRANCO'
+    squad.name_squad = 'Homens de Cinza'
     squad.descricao = 'Smith'
     squad.numero_pessoas = 5
     squad.lingbackend.id = 1
@@ -66,15 +66,15 @@ elif op == 4:
     tupla = controller.listar_por_id(id)
     print(tupla)
 
-    squad.name_squad = 'ola'
-    squad.descricao = 'tupla'
-    squad.numero_pessoas = 3
+    squad.name_squad = 'Homens de Preto'
+    squad.descricao = 'llllllll'
+    squad.numero_pessoas = 7
     
-    squad.lingbackend.linguagembackend = input('Digite a linguagem BACKEND: ')
-    squad.lingfrontend.linguagemfrontend = input('Digite a linguagem FRONTEND: ')
-    squad.lingsgbds.nome_db = input('Digite a linguagem SGBDS: ')
+    squad.lingbackend = int(input('Digite a ID linguagem BACKEND: '))
+    squad.lingfrontend = int(input('Digite a ID linguagem FRONTEND: '))
+    squad.lingsgbds = int(input('Digite a ID linguagem SGBDS: '))
 
-    controller.alterar(squad,id,tupla)
+    controller.alterar(squad,id)
 
     tupla = controller.listar_por_id(id)
     print(tupla)
@@ -87,6 +87,8 @@ elif op == 5:
     print(controller.listar_por_id(id))
 
     controller.deletar(id)
+    
+    print(controller.listar_por_id(id))
 
 else:
     print('Estou perdido!')

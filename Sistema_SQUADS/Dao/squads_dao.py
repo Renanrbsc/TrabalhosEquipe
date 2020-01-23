@@ -50,16 +50,16 @@ class SquadsDao:
             NAME_SQUAD = '{squads.name_squad}',
             DESCRICAO = '{squads.descricao}',
             NUMERO_PESSOAS = {squads.numero_pessoas},
-            ID_BACKEND = {squads.lingbackend.id},
-            ID_FRONTEND = {squads.lingfrontend.id},
-            ID_SGBDS = {squads.lingsgbds.id}
+            ID_BACKEND = {squads.lingbackend},
+            ID_FRONTEND = {squads.lingfrontend},
+            ID_SGBDS = {squads.lingsgbds}
         WHERE ID = {id}
         """
         self.cursor.execute(comando_sql)
         self.conexao.commit()
 
     def deletar(self,id):
-        comando_sql = f"DELETE FROM SQUAD WHERE CODIGO = {id}"
+        comando_sql = f"DELETE FROM SQUAD WHERE ID = {id}"
         self.cursor.execute(comando_sql)
         self.conexao.commit()
         
