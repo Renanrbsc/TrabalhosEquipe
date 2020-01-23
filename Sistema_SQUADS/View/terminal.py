@@ -1,9 +1,9 @@
 import sys
+sys.path.append('C:/Users/900145/Documents/TrabalhosEquipe/Sistema_SQUADS')
+sys.path.append('C:/Users/900145/Documents/TrabalhosEquipe/Sistema_SQUADS')
 sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosEquipe/Sistema_SQUADS')
-sys.path.append('C:/Users/900145/Documents/TrabalhosEquipe/Sistema_SQUADS')
-sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosEquipe/Sistema_SQUADS')
 sys.path.append('C:/Users/900159/Documents/GitHub/TrabalhosEquipe/Sistema_SQUADS')
-sys.path.append('C:/Users/900145/Documents/TrabalhosEquipe/Sistema_SQUADS')
+sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosEquipe/Sistema_SQUADS')
 
 from Controller.squads_controller import SquadsController
 from Controller.sgbds_controller import SgbdsController
@@ -17,12 +17,15 @@ from Model.backend import BackEnd
 
 def menu():
     print('*********************************')
-    print('* 1- Listar por codigo de Squad *')
-    print('* 2- Cadastrar Squad Dev        *')
-    print('* 3- Alterar Squad Dev          *')
-    print('* 4- Deletar Squad Dev          * # testando')
-    print('* 5- Cadastrar Linguagem        * ')
-    print('* 6- Alterar Linguagem        * ')
+    print('* 0- Listar todos os SQUADS     *')
+    print('* 1- Listar por codigo de SQUAD *')
+    print('* 2- Cadastrar SQUAD DEV        *')
+    print('* 3- Alterar SQUAD DEV          *')
+    print('* 4- Deletar SQUAD DEV          *')
+    print('* 5- Cadastrar Linguagem        *')
+    print('* 6- Alterar Linguagem          *')
+    print('* 7- Deletar Linguagem          *')
+    print('* 8- Listar todas Linguagem     *')
     print('*********************************')
     return int(input('* Digite a opcao: '))
 
@@ -32,9 +35,6 @@ controll_back = BackController()
 controll_front = FrontController()
 
 squad = Squads()
-sgbd = Sgbds()
-back = BackEnd()
-front = FrontEnd()
 
 op = menu()
 if op == 1:
@@ -86,7 +86,7 @@ elif op == 4:
     print(controller.listar_por_id(id))
 
     controller.deletar(id)
-
+    print('Registro deletado!')
     print(controller.listar_por_id(id))
     
 elif op == 5:
@@ -137,6 +137,40 @@ elif op == 6:
         controll_sgbd.alterar(squad)
         print(controll_sgbd.listar_por_id(op))
 
+elif op == 7:
+    print('-----Deletar  Linguagens-----')
+    print('-----1-BACK 2-FRONT 3-SGBD-----')
+    op = int(input('Digite a opcao: '))
+
+    if op == 1:
+        tupla = controll_back.listar_todos()
+        for i in tupla:
+            print(i)
+        op = int(input('Digite a ID para deletar: '))
+        controll_back.deletar(op)
+        print('Registro deletado!')
+        print(controll_back.listar_por_id(op))
+    if op == 2:
+        tupla = controll_front.listar_todos()
+        for i in tupla:
+            print(i)
+        op = int(input('Digite a ID para deletar: '))
+        controll_front.deletar(op)
+        print('Registro deletado!')
+        print(controll_front.listar_por_id(op))
+    if op == 3:
+        tupla = controll_sgbd.listar_todos()
+        for i in tupla:
+            print(i)
+        op = int(input('Digite a ID para deletar: '))
+        controll_sgbd.deletar(op)
+        print('Registro deletado!')
+        print(controll_sgbd.listar_por_id(op))
+
+elif op == 8:
+    print('------Listando  Linguagens------')
+    controller.listar_ling()
+    
 else:
     print('Estou perdido!')
 

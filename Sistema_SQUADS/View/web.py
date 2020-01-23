@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request
 import sys
+
 sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosSQL/Aula36 17-01')
 sys.path.append('C:/Users/900145/Documents/TrabalhosEquipe/Sistema_SQUADS')
 sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosSQL/Aula36 17-01')
+sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosEquipe/Sistema_SQUADS')
+
 from Controller.squads_controller import SquadsController
 from Controller.backend_controller import BackController
 from Controller.frontend_controller import FrontController
@@ -15,7 +18,7 @@ sqcontroller = SquadsController()
 sgcontroller = SgbdsController()
 bcontroller= BackController()
 fcontroller = FrontController()
-name = 'Sistema de consulta Times de Desenvolvimento'
+name = 'Sistema de Consulta Times de Desenvolvimento'
 
 @app.route('/')
 def inicio():

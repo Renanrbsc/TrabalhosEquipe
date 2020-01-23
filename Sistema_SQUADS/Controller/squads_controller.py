@@ -16,11 +16,16 @@ class SquadsController:
     def listar_por_id(self, id):
         return self.dao.listar_por_id(id)
 
-    def salvar(self, squads:Squads):
-        # squads.lingbackend.id = self.backend_controller.salvar(squads.lingbackend)
-        # squads.lingfrontend.id = self.frontend_controller.salvar(squads.lingfrontend)
-        # squads.lingsgbds.id = self.sgbds_controller.salvar(squads.lingsgbds)
+    def listar_ling(self):
+        ling = []
+        lista = ['BACKEND','FRONTEND','SGBD']
+        ling.append(self.backend_controller.listar_todos())
+        ling.append(self.frontend_controller.listar_todos())
+        ling.append(self.sgbds_controller.listar_todos())
+        for i in range(3):
+            print(f'{lista[i]} - {ling[i]}')
 
+    def salvar(self, squads:Squads):
         return self.dao.salvar(squads)
 
     def salvar_back(self, squads:Squads):
@@ -47,17 +52,9 @@ class SquadsController:
 
             return self.sgbds_controller.listar_por_id(id)
 
-
     def alterar(self, squads:Squads, id):
 
         self.dao.alterar(squads, id)
-
-    def alterar_ling(self, squads:Squads):
-        # self.backend_controller.alterar(squads.lingbackend)
-        # self.frontend_controller.alterar(squads.lingfrontend)
-        # self.sgbds_controller.alterar(squads.lingsgbds)
-        pass
-
 
     def deletar(self, id):
         self.dao.deletar(id)
