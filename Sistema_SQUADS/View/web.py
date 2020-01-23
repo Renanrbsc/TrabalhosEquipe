@@ -30,29 +30,31 @@ def listar():
 
 @app.route('/listar/codigo')
 def editar():
-    id = int(request.args['id'])
+    # id = int(request.args['id'])
+    id = 1
     squad = sqcontroller.listar_por_id(id)
-    return render_template('listar_codigo_squad.html', titulo_app = name, dados = squad)
+    return render_template('listar_codigo.html', titulo_app = name, dados = squad)
 
 @app.route('/listar/todos')
 def listar_todos():
     squads = sqcontroller.listar_todos()
+
     return render_template('listar_todos.html', titulo_app = name, dados = squads)
 
 @app.route('/listar/back')
 def listar_back():
     back = bcontroller.listar_todos()
-    return render_template('listar_codigo_back.html', titulo_app = name, dados = back)
+    return render_template('listar_back.html', titulo_app = name, dados = back)
 
 @app.route('/listar/front')
 def listar_front():
     front = fcontroller.listar_todos()
-    return render_template('listar_codigo_front.html', titulo_app = name, dados = front)
+    return render_template('listar_front.html', titulo_app = name, dados = front)
 
 @app.route('/listar/sgbd')
 def listar_sgbd():
     sgbd = sgcontroller.listar_todos()
-    return render_template('listar_codigo_sgbd.html', titulo_app = name, dados = sgbd)
+    return render_template('listar_sgbd.html', titulo_app = name, dados = sgbd)
 
 # @app.route('/cadastrar')
 # def cadastrar():
