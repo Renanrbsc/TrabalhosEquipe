@@ -2,9 +2,10 @@ import MySQLdb
 from Model.backend import BackEnd
 
 class DaoBackEnd:
-    conexao = MySQLdb.connect(host = '127.0.0.1',
-                              database = 'PadawanHBSIS',
-                              user = 'root')
+    conexao = MySQLdb.connect(host = 'mysql.padawans.dev',
+                              database = 'padawans16',
+                              user = 'padawans16',
+                              passwd = 'lr2019')
     cursor = conexao.cursor()
 
     def listar_todos(self):
