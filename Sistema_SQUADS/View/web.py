@@ -60,7 +60,11 @@ def listar_sgbd():
 def cadastrar():
     return render_template('cadastrar.html', titulo_app = name)
 
-@app.route('/cadastrar/inserir')
+@app.route('/cadastrar/squad')
+def cadastrar_squad():
+    return render_template('cadastrar_squad.html', titulo_app = name)
+
+@app.route('/cadastrar/squad/inserir')
 def cadastrado():
     squad.name_squad = request.args['nome']
     squad.descricao = request.args['desc']

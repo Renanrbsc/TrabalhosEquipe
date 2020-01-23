@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{titulo_app}} - Tipo de busca </title>
+    <link rel="stylesheet" href="../static/layout.css">
+</head>
+<body>
+    <div class="retangulo">
+        <br>
+        <h1 style = "text-align: center" class = 'center'>{{titulo_app}}</h1>
+        <div>
+            <br><br>
+            <h1><p style = "margin-left: 15%; margin-right: 15%; text-align: center" class = 'title-center'>Escolha o tipo de busca</p></h1>
+            <br>
+            <div>
+                <form action="/listar/codigo">
+                    <input style = "margin-left: 43%; margin-right: 40%; text-align: center" type="text" name="id" placeholder="Informe o codigo de Squad.."/> <br>
+                    <h2 style = "margin-left: 40%; margin-right: 40%; text-align: center" ><input type="submit" value="Id Squad"/></h2>
+                </form>
+                                
+                    <h2 style = "margin-left: 40%; margin-right: 40%; text-align: center"><a href="/listar/todos" class = 'btn-center'>Todos Squad</a></h2>
+                
+                    <h2 style = "margin-left: 40%; margin-right: 40%; text-align: center"><a href="/listar/back" class = 'btn-center'>Tipo Backend</a></h2>
+
+                    <h2 style = "margin-left: 40%; margin-right: 40%; text-align: center"><a href="/listar/front" class = 'btn-center'>Tipo Frontend</a></h2>
+
+                    <h2 style = "margin-left: 40%; margin-right: 40%; text-align: center"><a href="/listar/sgbd" class = 'btn-center'>Tipo SGBD</a></h2>
+                <br><br>
+                <br>
+            </div>
+        </div>        
+        <h2><a class = 'center-link' href="/">Voltar a tela inicial</a> <br/></h2>
+        <br>        
+    </div>
+</body>
+</html> 
