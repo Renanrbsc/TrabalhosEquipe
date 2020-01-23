@@ -25,6 +25,14 @@ div.retangulo{
     margin: 60px;
     padding: 25px;
 }
+.cadastro-center{
+    border-radius: 1em;
+    color:#fff;
+    background: #1d89e2;
+    width: 500px;
+    margin: auto;
+    padding: 25px;
+}
 .btn-center{
     color:#fff;
     background: #0068bd;

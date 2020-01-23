@@ -5,8 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="../../static/layout.css">
+
 </head>
 <body>
-
+    <div class="retangulo">
+        <br>
+        <h1 style = "text-align: center" class = 'center'>{{titulo_app}}</h1>
+        <div>
+            <br><br>
+            <h1><p style = "margin-left: 15%; margin-right: 15%; text-align: center" class = 'title-center'>Cadastrar Squad Dev</p></h1>
+            <p style = "margin-left: 15%; margin-right: 15%; text-align: center">* Todos os dados são obrigatórios!</p>
+            <form action="/cadastro/inserir">
+                <div class="cadastro-center">
+                    <a class = 'title-center'><label for="name">Nome Squad: </label><input type="text" name="nome" placeholder="Informe o Nome do Squad.."/></a><br><br><br>
+                    <a class = 'title-center'><label for="desc">Descrição: </label><input type="text" name="desc" placeholder="Informe a descrição do squad.."/></a><br><br><br>
+                    <a class = 'title-center'><label for="quant">Integrantes: </label><input type="text" name="integ" placeholder="Informe a quant integrantes.."/></a><br><br><br>
+                    <a class = 'title-center'><label for="back">ID_Backend: </label><input type="text" name="id_back" placeholder="Informe a ID Linguagem Backend "/></a><br><br><br>
+                    <a class = 'title-center'><label for="front">ID_Frontend: </label><input type="text" name="id_front" placeholder="Informe a ID Framework Frontend:"/></a><br><br><br>
+                    <a class = 'title-center'><label for="bd">ID_SGBD: </label><input type="text" name="id_sgbd" placeholder="Informe a ID Banco de dados:"/></a><br><br><br>
+                    <input type="submit" class = 'cadastro-center' value="Enviar"/>
+                </div>
+            </form>
+            </h2>   
+            <br>
+            <h2><a class = 'center-link' href="/">Voltar a tela inicial</a> <br> <br></h2>
+        </div>
+    </div>
 </body>
 </html>

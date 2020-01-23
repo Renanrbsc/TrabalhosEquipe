@@ -56,9 +56,28 @@ def listar_sgbd():
     sgbd = sgcontroller.listar_todos()
     return render_template('listar_sgbd.html', titulo_app = name, dados = sgbd)
 
-# @app.route('/cadastrar')
-# def cadastrar():
-#     return render_template('cadastrar.html', titulo_app=nome_app)
+@app.route('/cadastrar')
+def cadastrar():
+    return render_template('cadastrar.html', titulo_app = name)
+
+@app.route('/cadastrar/inserir')
+def cadastrar():
+    squad.name_squad = request.args['nome']
+    squad.descricao = request.args['desc']
+    squad.numero_pessoas = request.args['integ']
+    squad.lingbackend.id = request.args['id_back']
+    squad.lingfrontend.id = request.args['id_front']
+    squad.lingsgbds.id = request.args['id_sgbd']
+
+    id_salvo = controller.salvar(squad) 
+    squad_dev = controller.listar_por_id(id_salvo)
+
+    return render_template('cadastrado.html', titulo_app = name, dados = squad_dev)
+
+
+
+
+
 
 # @app.route('/excluir')
 # def excluir():
