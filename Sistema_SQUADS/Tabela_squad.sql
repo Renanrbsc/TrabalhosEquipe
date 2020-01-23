@@ -1,14 +1,3 @@
-CREATE TABLE SQUADS_DEV (
-codigo INT(11) NOT NULL AUTO_INCREMENT,
-NAME_SQUAD VARCHAR(100) NOT NULL,
-descricao VARCHAR(200) NOT NULL,
-numero_pessoas INT(5) NOT NULL,
-lingugemBackEnd VARCHAR(100) NOT NULL,
-linguagemFrontEnd VARCHAR(100) NOT NULL,
-PRIMARY KEY (CODIGO)
-);
-
-
 ----------#testando tabelas com foreigh key-----------------------------------
 
 CREATE TABLE SQUAD (
