@@ -76,11 +76,11 @@ elif op == 4:
         squad.lingsgbds.id = int(input('Digite a ID da linguagem SGBDS: '))
 
     if tupla[4] == None and squad.lingbackend.id == None:
-        squad.lingbackend.id = 0
+        squad.lingbackend.id = 1
     if tupla[5] == None and squad.lingfrontend.id == None:
-        squad.lingfrontend.id = 0
+        squad.lingfrontend.id = 1
     if tupla[6] == None and squad.lingsgbds.id == None:
-        squad.lingsgbds.id = 0
+        squad.lingsgbds.id = 1
 
     controller.alterar_squad(squad, id)
 
