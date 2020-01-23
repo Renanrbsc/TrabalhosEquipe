@@ -35,7 +35,7 @@ PRIMARY KEY (ID)
 -------------------------------------
 
 INSERT INTO BACKEND (LINGUAGEMBACKEND)
-        VALUES('Python'),('Ruby'),('Pascal'),('Java'),('C#'),('C'),('Swift'),('PHP'),('JavaScript')
+        VALUES('Python'),('Ruby'),('Pascal'),('Java'),('C#'),('C'),('Swift'),('PHP'),('JavaScript'),('Cobol')
      
 INSERT INTO FRONTEND (LINGUAGEMFRONTEND)
         VALUES('HTML'),('CSS'),('JavaScript')
@@ -43,4 +43,3 @@ INSERT INTO FRONTEND (LINGUAGEMFRONTEND)
 INSERT INTO SGBDS (NOME_DB)
         VALUES('MySQL'),('SQLite'),('Oracle'),('SQL Server')
 
-        
