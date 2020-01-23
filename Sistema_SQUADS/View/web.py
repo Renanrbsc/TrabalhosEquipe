@@ -13,7 +13,7 @@ from Controller.sgbds_controller import SgbdsController
 from Model.squads import Squads
 
 app = Flask(__name__)
-pessoa = Squads()
+squad = Squads()
 sqcontroller = SquadsController()
 sgcontroller = SgbdsController()
 bcontroller= BackController()
@@ -69,8 +69,8 @@ def cadastrar():
     squad.lingfrontend.id = request.args['id_front']
     squad.lingsgbds.id = request.args['id_sgbd']
 
-    id_salvo = controller.salvar(squad) 
-    squad_dev = controller.listar_por_id(id_salvo)
+    id_salvo = sqcontroller.salvar(squad) 
+    squad_dev = sqcontroller.listar_por_id(id_salvo)
 
     return render_template('cadastrado.html', titulo_app = name, dados = squad_dev)
 
