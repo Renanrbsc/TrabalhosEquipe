@@ -34,9 +34,9 @@ elif op == 2:
     squad.name_squad = 'Homens de BRANCO'
     squad.descricao = 'Smith'
     squad.numero_pessoas = 5
-    squad.lingbackend.linguagembackend = 'Cobol'
-    squad.lingfrontend.linguagemfrontend = 'HTML'
-    squad.lingsgbds.nome_db = 'SQLite'
+    squad.lingbackend.id = 2
+    squad.lingfrontend.id = 2
+    squad.lingsgbds.id = 2
     
     id_salvo = controller.salvar(squad)
     squad_dev = controller.listar_por_id(id_salvo)

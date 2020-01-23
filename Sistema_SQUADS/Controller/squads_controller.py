@@ -16,19 +16,10 @@ class SquadsController:
     def listar_por_id(self, id):
         return self.dao.listar_por_id(id)
 
-    def listar_linguagens(self):
-        a = self.backend_controller.listar_todos()
-        b = self.frontend_controller.listar_todos()
-        c = self.sgbds_controller.listar_todos()
-        print(a)
-        print('Ling BACK | Ling FRONT | Ling SGBD')
-        for i in range(len(a)):
-            print(f'{a[i]} | {b[i]} | {c[i]}')
-
     def salvar(self, squads:Squads):
-        squads.lingbackend.id = self.backend_controller.salvar(squads.lingbackend)
-        squads.lingfrontend.id = self.frontend_controller.salvar(squads.lingfrontend)
-        squads.lingsgbds.id = self.sgbds_controller.salvar(squads.lingsgbds)
+        # squads.lingbackend.id = self.backend_controller.salvar(squads.lingbackend)
+        # squads.lingfrontend.id = self.frontend_controller.salvar(squads.lingfrontend)
+        # squads.lingsgbds.id = self.sgbds_controller.salvar(squads.lingsgbds)
 
         return self.dao.salvar(squads)
 
