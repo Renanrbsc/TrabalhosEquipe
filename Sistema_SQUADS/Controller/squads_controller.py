@@ -48,16 +48,15 @@ class SquadsController:
             return self.sgbds_controller.listar_por_id(id)
 
 
-    def alterar(self, squads:Squads, id,tupla):
-        squads.id = tupla[0]
-        squads.lingbackend.id = tupla[4]
-        squads.lingfrontend.id = tupla[5]
-        squads.lingsgbds.id = tupla[6]
-        self.backend_controller.alterar(squads.lingbackend)
-        self.frontend_controller.alterar(squads.lingfrontend)
-        self.sgbds_controller.alterar(squads.lingsgbds)
+    def alterar(self, squads:Squads, id):
 
         self.dao.alterar(squads, id)
+
+    def alterar_ling(self, squads:Squads):
+        # self.backend_controller.alterar(squads.lingbackend)
+        # self.frontend_controller.alterar(squads.lingfrontend)
+        # self.sgbds_controller.alterar(squads.lingsgbds)
+        pass
 
 
     def deletar(self, id):
