@@ -37,8 +37,8 @@ class DaoFrontEnd:
     def alterar(self, frontend:FrontEnd):
         comando_sql = f"""UPDATE FRONTEND
         SET 
-            LINGUAGEMFRONTEND = '{frontend.linguagemfrontend}'
-        WHERE ID = {frontend.id}
+            LINGUAGEMFRONTEND = '{frontend.lingfrontend.linguagemfrontend}'
+        WHERE ID = {frontend.lingfrontend.id}
         """
         self.cursor.execute(comando_sql)
         self.conexao.commit()
