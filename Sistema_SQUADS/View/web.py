@@ -1,14 +1,20 @@
 from flask import Flask, render_template, request
 import sys
 sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosSQL/Aula36 17-01')
-sys.path.append('C:/Users/900145/Documents/TrabalhosSQL/Aula36 17-01')
+sys.path.append('C:/Users/900145/Documents/TrabalhosEquipe/Sistema_SQUADS')
 sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosSQL/Aula36 17-01')
 from Controller.squads_controller import SquadsController
+from Controller.backend_controller import BackController
+from Controller.frontend_controller import FrontController
+from Controller.sgbds_controller import SgbdsController
 from Model.squads import Squads
 
 app = Flask(__name__)
 pessoa = Squads()
-controller = SquadsController()
+sqcontroller = SquadsController()
+sgcontroller = SgbdsController()
+bcontroller= BackController()
+fcontroller = FrontController()
 name = 'Sistema de consulta Times de Desenvolvimento'
 
 @app.route('/')
@@ -21,15 +27,36 @@ def listar():
 
 @app.route('/listar/todos')
 def listar_todos():
-    squads = controller.listar_todos()
+    squads = sqcontroller.listar_todos()
     return render_template('listar_todos.html', titulo_app = name, lista = squads)
 
-@app.route('/listar/codigo')
+@app.route('/listar/codigo/squad')
 def editar():
     id = int(request.args['id'])
 
-    squad = controller.listar_por_id(id)
-    return render_template('listar_codigo.html', titulo_app = name, dados = squad)
+    squad = sqcontroller.listar_por_id(id)
+    return render_template('listar_codigo_squad.html', titulo_app = name, dados = squad)
+
+@app.route('/listar/codigo/back')
+def listar_back():
+    id = int(request.args['id'])
+
+    back = bcontroller.listar_por_id(id)
+    return render_template('listar_codigo_back.html', titulo_app = name, dados = back)
+
+@app.route('/listar/codigo/front')
+def listar_front():
+    id = int(request.args['id'])
+
+    front = fcontroller.listar_por_id(id)
+    return render_template('listar_codigo_front.html', titulo_app = name, dados = front)
+
+@app.route('/listar/codigo/sgbd')
+def listar_sgbd():
+    id = int(request.args['id'])
+
+    sgbd = sgcontroller.listar_por_id(id)
+    return render_template('listar_codigo_sgbd.html', titulo_app = name, dados = sgbd)
 
 # @app.route('/cadastrar')
 # def cadastrar():
@@ -47,7 +74,7 @@ def editar():
 app.run(debug=True)
 
 
-
+ 
 
 
 # @app.route('/cadastro')
