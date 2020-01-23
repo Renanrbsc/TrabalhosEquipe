@@ -24,6 +24,10 @@ if op == 1:
     id = int(input('Digite o codigo: '))
     print(controller.listar_por_id(id))
 
+    print('-----Listar todos-----')
+    print(controller.listar_todos())
+
+
 elif op == 2:
     print('-----Cadastrar SQUADS_DEV-----')
     
@@ -48,8 +52,8 @@ elif op == 3:
     squad.lingbackend.linguagembackend = 'Cobol'
     squad.lingfrontend.linguagemfrontend = 'HTML'
     
-    id_salvo = controller.alterar(squad, id)
     print(controller.listar_por_id(id))
+    id_salvo = controller.alterar(squad, id)
 
 elif op == 4:
     print('-----Deletar Cliente-----')
