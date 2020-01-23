@@ -37,8 +37,8 @@ class DaoSgbds:
     def alterar(self, db:Sgbds):
         comando_sql = f"""UPDATE SGBDS
         SET 
-            NOME_DB = '{db.nome_db}'
-        WHERE ID = {db.id}
+            NOME_DB = '{db.lingsgbds.nome_db}'
+        WHERE ID = {db.lingsgbds.id}
         """
         self.cursor.execute(comando_sql)
         self.conexao.commit()

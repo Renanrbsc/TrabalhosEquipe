@@ -35,11 +35,10 @@ class DaoBackEnd:
         return id_inserido
 
     def alterar(self, backend:BackEnd):
-        print(backend.linguagembackend)
         comando_sql = f"""UPDATE BACKEND
         SET 
-            LINGUAGEMBACKEND = '{backend.linguagembackend}'
-        WHERE ID = {backend.id}
+            LINGUAGEMBACKEND = '{backend.lingbackend.linguagembackend}'
+        WHERE ID = {backend.lingbackend.id}
         """
         self.cursor.execute(comando_sql)
         self.conexao.commit()
