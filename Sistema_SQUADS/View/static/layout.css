@@ -37,7 +37,23 @@ div.retangulo{
     color:#0068bd;
     background: #fff;
     border: 2px auto #0068bd;
+    
 }
+
+input[type=submit]{ 
+    color:#fff;
+    background: #0068bd;
+    border-radius : 0.5em;
+}
+input[type=submit]:hover{
+    color:#0068bd;
+    background: #fff;
+}
+
+
+
+
+
 .btn-editar{
     color:#fff;
     background: #0068bd;
@@ -88,7 +104,7 @@ div.retangulo{
     background: #fff;
     color:#000;
 }
-
+/* 
 input{    
     position:relative;
     margin: auto;
@@ -111,7 +127,7 @@ input[type=submit]:hover{
     color:#fff;
     background: #0068bd;
     border: 3px solid #fff;
-}
+} */
 
 
 
