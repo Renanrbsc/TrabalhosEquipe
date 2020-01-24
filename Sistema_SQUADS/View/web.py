@@ -1,19 +1,26 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 import sys
 
 sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosSQL/Aula36 17-01')
 sys.path.append('C:/Users/900145/Documents/TrabalhosEquipe/Sistema_SQUADS')
 sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosSQL/Aula36 17-01')
 sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosEquipe/Sistema_SQUADS')
+sys.path.append('C:/Users/americo/Documents/Trabalhos python HBSis/TrabalhosEquipe/Sistema_SQUADS')
 
 from Controller.squads_controller import SquadsController
 from Controller.backend_controller import BackController
 from Controller.frontend_controller import FrontController
 from Controller.sgbds_controller import SgbdsController
 from Model.squads import Squads
+from Model.backend import BackEnd
+from Model.frontend import FrontEnd
+from Model.sgbds import Sgbds
 
 app = Flask(__name__)
 squad = Squads()
+back = BackEnd()
+front = FrontEnd()
+bd= Sgbds()
 sqcontroller = SquadsController()
 sgcontroller = SgbdsController()
 bcontroller= BackController()
@@ -84,31 +91,47 @@ def cadastrar_linguagens():
 
 @app.route('/cadastrar/ling/back')
 def cadastrar_tipo_back():
+    
     return render_template('cadastrar_linguagens.html', titulo_app = name)
 
 
 @app.route('/cadastrar/ling/front')
 def cadastrar_tipo_front():
+    
     return render_template('cadastrar_linguagens.html', titulo_app = name)
 
 @app.route('/cadastrar/ling/banco')
 def cadastrar_tipo_banco():
+    
     return render_template('cadastrar_linguagens.html', titulo_app = name)
 
 @app.route('/cadastrar/ling/cadastrado')
 def cadastrar_salvar():
+   
     return render_template('cadastrado_ling_salvo.html', titulo_app = name)
 
 
+@app.route('/alterar')
+def alterar():
+    id = int(request.args['id'])
+    squad.alterar(id)
+    if id != 'None':
+        squad.alterar(id)
+    return redirect('listar_todos')
 
-# @app.route('/excluir')
-# def excluir():
-#     id_pessoa = int(request.args['id_pessoa'])
-#     id_endereco = request.args['id_endereco']
-#     pessoa_controller.deletar(id_pessoa)
-#     if id_endereco != 'None':
-#         endereco_controller.deletar(id_endereco)
-#     return redirect('/listar')
+@app.route('/excluir')
+def excluir():
+    id = int(request.args['id'])
+    squad.deletar(id)
+    return redirect('listar_todos')
+
+#@app.route('/excluir')
+#def excluir():
+#    id = int(request.args['id'])
+#    controller.deletar(id)
+#    if id_endereco != 'None':
+#        endereco_controller.deletar(id_endereco)
+#    return redirect('/listar')
 
 app.run(debug=True)
 
