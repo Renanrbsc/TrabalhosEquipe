@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{titulo_app}} - Dados do ID</title>
+    <link rel="stylesheet" href="../../static/layout.css">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{titulo_app}} - Dados do ID</title>
+    <link rel="stylesheet" href="../../static/layout.css">
+</head>
+<body>
+    <div class="retangulo">
+        <br>
+        <h1 style = "text-align: center" class = 'center'>{{titulo_app}}</h1>
+        <div>
+            <br><br>
+            <h1><p style = "margin-left: 15%; margin-right: 15%; text-align: center" class = 'title-center'>Editar Id Squad</p></h1>
+            <table id = 'tabela-listas'>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome Squad</th>
+                    <th>Descricao</th>
+                    <th>Integrantes</th>
+                    <th>ID_BACKEND</th>
+                    <th>ID_FRONTEND</th>
+                    <th>ID_SGBD</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ dados[0] }}</td>
+                    <td>{{ dados[1] }}</td>
+                    <td>{{ dados[2] }}</td>
+                    <td>{{ dados[3] }}</td>
+                    <td>{{ dados[4] }}</td>
+                    <td>{{ dados[5] }}</td>
+                    <td>{{ dados[6] }}</td>
+                </tr>
+            </tbody>
+        </table>
+        </h3>
+        <br>
+        <br>
+        <br>
+        <h3>
+            <form action="/editar/squad">
+                <div class="cadastro-center">
+                    <a class = 'title-center'><label for="name">Nome Squad: </label><input type="text" name="nome" placeholder="{{ dados[1] }}"/></a><br><br><br>
+                    <a class = 'title-center'><label for="desc">Descrição: </label><input type="text" name="desc" placeholder="{{ dados[2] }}"/></a><br><br><br>
+                    <a class = 'title-center'><label for="quant">Integrantes: </label><input type="text" name="integ" placeholder="{{ dados[3] }}"/></a><br><br><br>
+                    <a class = 'title-center'><label for="back">ID_Backend: </label><input type="text" name="id_back" placeholder="{{ dados[4] }} "/></a><br><br><br>
+                    <a class = 'title-center'><label for="front">ID_Frontend: </label><input type="text" name="id_front" placeholder="{{ dados[5] }}"/></a><br><br><br>
+                    <a class = 'title-center'><label for="bd">ID_SGBD: </label><input type="text" name="id_sgbd" placeholder="{{ dados[6] }}"/></a><br><br><br>
+                    <input type="submit" class = 'cadastro-center' value="Enviar"/>
+                </div>
+            </form>
+        </h3>
+        <br>
+        <h2><a class = 'center-link' href="/">Voltar a tela inicial</a> <br/></h2>
+        <br>      
+    </div>
+</body>
+</html>

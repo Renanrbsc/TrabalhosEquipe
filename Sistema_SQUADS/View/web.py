@@ -105,13 +105,11 @@ def cadastrar_salvar():
     return render_template('cadastrado_ling_salvo.html', titulo_app = name, dados = dados)
 
 
-@app.route('/alterar')
+@app.route('/alterar/squad')
 def alterar():
     id = int(request.args['id'])
-    squad.alterar(id)
-    if id != 'None':
-        squad.alterar(id)
-    return redirect('listar_todos.html')
+    id_squad = sqcontroller.listar_por_id(id)
+    return render_template('alterar_id_squad.html', titulo_app = name,dados = id_squad, id = id)
 
 @app.route('/excluir/squad')
 def excluir():
