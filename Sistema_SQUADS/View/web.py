@@ -34,8 +34,7 @@ def listar():
 
 @app.route('/listar/codigo')
 def editar():
-    # id = int(request.args['id'])
-    id = 1
+    id = int(request.args['id'])
     squad = sqcontroller.listar_por_id(id)
     return render_template('listar_codigo.html', titulo_app = name, dados = squad)
 
@@ -111,6 +110,10 @@ def alterar():
     id = int(request.args['id'])
     id_squad = sqcontroller.listar_por_id(id)
     return render_template('alterar_id_squad.html', titulo_app = name,dados = id_squad, id = id)
+
+@app.route('/alterar/linguagens')
+def altera_lingua():
+    pass
 
 @app.route('/excluir/squad')
 def excluir():
