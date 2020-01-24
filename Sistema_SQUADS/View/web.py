@@ -109,7 +109,7 @@ def cadastrar_salvar():
 @app.route('/alterar/squad')
 def alterar():
     id = request.args['id']
-    return render_template('listar_todos.html')
+    return render_template('alterar.html')
 
 @app.route('/excluir/squad')
 def excluir():
