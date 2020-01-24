@@ -138,6 +138,22 @@ def recebe_alterar_dados():
     tupla = sqcontroller.listar_por_id(id)
     return render_template('squad_atualizado.html',titulo_app = name, dados = tupla)
 
+@app.route('/alterar/front')
+def alterar_front():
+    id = int(request.args['id'])
+    tupla = fcontroller.listar_por_id(id)
+
+    return render_template('alterar_front.html',titulo_app = name, dados = tupla, id= id)
+
+@app.route('/alterar/front/dados')
+def alterar_front_dados():
+    id = int(request.args['id'])
+
+    squad.lingfrontend.linguagemfrontend = request.args['nome']
+    squad.lingfrontend.id = id
+    fcontroller.alterar(squad)
+    return redirect('/listar/todos')
+
 #@app.route('/excluir')
 #def excluir():
 #    id = int(request.args['id'])
