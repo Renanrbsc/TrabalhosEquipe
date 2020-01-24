@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, redirect
 import sys
 
 sys.path.append(r'C:\Users\900159\Documents\TrabalhosEquipe\Sistema_SQUADS')
-sys.path.append(r'C:\Users\900145\Documents\TrabalhosEquipe\Sistema_SQUADS')
 
 from Controller.squads_controller import SquadsController
 from Controller.backend_controller import BackController
@@ -96,26 +95,29 @@ def cadastrar_salvar():
     ling = request.args['ling']
     if ling == 'back':
         squad.lingbackend.linguagembackend = request.args['nome']
-        dados = sqcontroller.salvar_back(squad)
+        dados = bcontroller.salvar(squad)
     elif ling == 'front':
         squad.lingfrontend.linguagemfrontend = request.args['nome']
-        dados = sqcontroller.salvar_front(squad)
+        dados = fcontroller.salvar(squad)
     elif ling == 'banco':
         squad.lingsgbds.nome_db = request.args['nome']
-        dados = sqcontroller.salvar_sgbd(squad)
+        dados = sgcontroller.salvar(squad)
     return render_template('cadastrado_ling_salvo.html', titulo_app = name, dados = dados)
 
 
-@app.route('/alterar/squad')
+@app.route('/alterar')
 def alterar():
     id = request.args['id']
     return render_template('alterar.html')
 
 @app.route('/excluir/squad')
 def excluir():
-    id = request.args['id']
-    
-    pass
+    id = int(request.args['id'])
+    sqcontroller.deletar(id)
+    return redirect('/listar/todos')
+
+@app.route('/editar/atualizado')
+
 #@app.route('/excluir')
 #def excluir():
 #    id = int(request.args['id'])
@@ -123,6 +125,7 @@ def excluir():
 #    if id_endereco != 'None':
 #        endereco_controller.deletar(id_endereco)
 #    return redirect('/listar')
+
 app.run(debug=True)
 
 
