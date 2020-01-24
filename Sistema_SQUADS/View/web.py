@@ -95,13 +95,13 @@ def cadastrar_salvar():
     ling = request.args['ling']
     if ling == 'back':
         squad.lingbackend.linguagembackend = request.args['nome']
-        dados = bcontroller.salvar(squad)
+        dados = sqcontroller.salvar_back(squad)
     elif ling == 'front':
         squad.lingfrontend.linguagemfrontend = request.args['nome']
-        dados = fcontroller.salvar(squad)
+        dados = sqcontroller.salvar_front(squad)
     elif ling == 'banco':
         squad.lingsgbds.nome_db = request.args['nome']
-        dados = sgcontroller.salvar(squad)
+        dados = sqcontroller.salvar_sgbd(squad)
     return render_template('cadastrado_ling_salvo.html', titulo_app = name, dados = dados)
 
 
@@ -116,6 +116,23 @@ def excluir():
     id = int(request.args['id'])
     sqcontroller.deletar(id)
     return redirect('/listar/todos')
+
+@app.route('/editar/atualizado')
+def recebe_alterar_dados():
+    id = int(request.args['id'])
+
+    squad.name_squad = request.args['nome']
+    squad.descricao = request.args['desc']
+    squad.numero_pessoas = int(request.args['integ'])
+    
+    squad.lingbackend = int(request.args['id_back'])
+    squad.lingfrontend = int(request.args['id_front'])
+    squad.lingsgbds = int(request.args['id_sgbd'])
+
+    sqcontroller.alterar(squad,id)
+
+    tupla = sqcontroller.listar_por_id(id)
+    return render_template('listar_codigo.html',titulo_app = name, dados = tupla)
 
 #@app.route('/excluir')
 #def excluir():
