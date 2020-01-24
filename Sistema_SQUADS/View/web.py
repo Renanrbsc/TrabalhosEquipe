@@ -152,7 +152,7 @@ def alterar_front_dados():
     squad.lingfrontend.linguagemfrontend = request.args['nome']
     squad.lingfrontend.id = id
     fcontroller.alterar(squad)
-    return redirect('/listar/todos')
+    return redirect('/listar/front')
 
 #@app.route('/excluir')
 #def excluir():
