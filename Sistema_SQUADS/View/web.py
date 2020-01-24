@@ -90,24 +90,26 @@ def cadastrar_linguagens():
     return render_template('cadastrar_ling.html', titulo_app = name)
 
 @app.route('/cadastrar/ling/back')
-def cadastrar_tipo_back():
-    
+def cadastrar_tipo_back():  
     return render_template('cadastrar_linguagens.html', titulo_app = name)
 
 
 @app.route('/cadastrar/ling/front')
 def cadastrar_tipo_front():
-    
     return render_template('cadastrar_linguagens.html', titulo_app = name)
 
 @app.route('/cadastrar/ling/banco')
 def cadastrar_tipo_banco():
-    
     return render_template('cadastrar_linguagens.html', titulo_app = name)
 
 @app.route('/cadastrar/ling/cadastrado')
 def cadastrar_salvar():
-   
+    if app.route() == '/cadastrar/ling/banco':
+        print('sei la')
+    if app.route() == '/cadastrar/ling/back':
+        print('estou aqui')
+    if app.route() == '/cadastrar/ling/front':
+        print('me perdi')
     return render_template('cadastrado_ling_salvo.html', titulo_app = name)
 
 
