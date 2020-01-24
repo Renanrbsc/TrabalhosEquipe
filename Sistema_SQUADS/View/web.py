@@ -117,7 +117,7 @@ def excluir():
     sqcontroller.deletar(id)
     return redirect('/listar/todos')
 
-@app.route('/alterar/atualizado')
+@app.route('/alterar/squad/atualizado')
 def recebe_alterar_dados():
     id = int(request.args['id'])
 

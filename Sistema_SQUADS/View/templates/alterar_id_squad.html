@@ -53,7 +53,8 @@
         <br>
         <br>
         <h3>
-            <form action="/alterar/squad">
+            <form action="/alterar/squad/atualizado">
+                <input type="hidden" name="id" value="{{dados[0]}}">
                 <div class="cadastro-center">
                     <a class = 'title-center'><label for="name">Nome Squad: </label><input type="text" name="nome" placeholder="{{ dados[1] }}"/></a><br><br><br>
                     <a class = 'title-center'><label for="desc">Descrição: </label><input type="text" name="desc" placeholder="{{ dados[2] }}"/></a><br><br><br>
