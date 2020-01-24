@@ -104,21 +104,17 @@ def cadastrar_tipo_banco():
 
 @app.route('/cadastrar/ling/cadastrado')
 def cadastrar_salvar():
-    if app.route() == '/cadastrar/ling/banco':
-        print('sei la')
-    if app.route() == '/cadastrar/ling/back':
-        print('estou aqui')
-    if app.route() == '/cadastrar/ling/front':
-        print('me perdi')
     return render_template('cadastrado_ling_salvo.html', titulo_app = name)
 
 
 @app.route('/alterar/squad')
 def alterar():
+    id = request.args['id']
     return render_template('listar_todos.html')
 
-@app.route('/excluir')
+@app.route('/excluir/squad')
 def excluir():
+    id = request.args['id']
     
     pass
 #@app.route('/excluir')
