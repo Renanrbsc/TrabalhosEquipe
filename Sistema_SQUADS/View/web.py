@@ -111,20 +111,14 @@ def cadastrar_salvar():
     return render_template('cadastrado_ling_salvo.html', titulo_app = name)
 
 
-@app.route('/alterar')
+@app.route('/alterar/squad')
 def alterar():
-    id = int(request.args['id'])
-    squad.alterar(id)
-    if id != 'None':
-        squad.alterar(id)
-    return redirect('listar_todos')
+    return render_template('listar_todos.html')
 
 @app.route('/excluir')
 def excluir():
-    id = int(request.args['id'])
-    squad.deletar(id)
-    return redirect('listar_todos')
-
+    
+    pass
 #@app.route('/excluir')
 #def excluir():
 #    id = int(request.args['id'])
@@ -132,7 +126,6 @@ def excluir():
 #    if id_endereco != 'None':
 #        endereco_controller.deletar(id_endereco)
 #    return redirect('/listar')
-
 app.run(debug=True)
 
 
