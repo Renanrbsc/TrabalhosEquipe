@@ -17,6 +17,7 @@
             <h1><p style = "margin-left: 15%; margin-right: 15%; text-align: center" class = 'title-center'>Cadastrar linguagem </p></h1>
             
             <form action="/cadastrar/ling/cadastrado">
+                <input type="hidden" name="ling" value="{{ling}}">
                 <div class="cadastro-center">
                     <a class = 'title-center'><label for="nome">Nome linguagem: </label><input type="text" name="nome" placeholder="Informe o nome da linguagem:"/></a><br><br><br>
                     <input type="submit" class = 'cadastro-center' value="Enviar"/>

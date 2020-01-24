@@ -1,11 +1,7 @@
 from flask import Flask, render_template, request, redirect
 import sys
 
-sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosSQL/Aula36 17-01')
-sys.path.append('C:/Users/900145/Documents/TrabalhosEquipe/Sistema_SQUADS')
-sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosSQL/Aula36 17-01')
-sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosEquipe/Sistema_SQUADS')
-sys.path.append('C:/Users/americo/Documents/Trabalhos python HBSis/TrabalhosEquipe/Sistema_SQUADS')
+sys.path.append(r'C:\Users\900159\Documents\TrabalhosEquipe\Sistema_SQUADS')
 
 from Controller.squads_controller import SquadsController
 from Controller.backend_controller import BackController
@@ -80,8 +76,8 @@ def cadastrado():
     squad.lingfrontend.id = int(request.args['id_front'])
     squad.lingsgbds.id = int(request.args['id_sgbd'])
 
-    id_salvo = sqcontroller.salvar(squad) 
-    squad_dev = sqcontroller.listar_por_id(id_salvo)
+    id_salvo = bcontroller.salvar(squad) 
+    squad_dev = bcontroller.listar_por_id(id_salvo)
 
     return render_template('cadastrado.html', titulo_app = name, dados = squad_dev)
 
@@ -89,28 +85,24 @@ def cadastrado():
 def cadastrar_linguagens():
     return render_template('cadastrar_ling.html', titulo_app = name)
 
-@app.route('/cadastrar/ling/back')
+@app.route('/cadastrar/linguagens')
 def cadastrar_tipo_back():  
-    return render_template('cadastrar_linguagens.html', titulo_app = name)
-
-
-@app.route('/cadastrar/ling/front')
-def cadastrar_tipo_front():
-    return render_template('cadastrar_linguagens.html', titulo_app = name)
-
-@app.route('/cadastrar/ling/banco')
-def cadastrar_tipo_banco():
-    return render_template('cadastrar_linguagens.html', titulo_app = name)
+    ling = request.args['ling']    
+    return render_template('cadastrar_linguagens.html', titulo_app = name, ling = ling)
 
 @app.route('/cadastrar/ling/cadastrado')
 def cadastrar_salvar():
-    if app.route() == '/cadastrar/ling/banco':
-        print('sei la')
-    if app.route() == '/cadastrar/ling/back':
-        print('estou aqui')
-    if app.route() == '/cadastrar/ling/front':
-        print('me perdi')
-    return render_template('cadastrado_ling_salvo.html', titulo_app = name)
+    ling = request.args['ling']
+    if ling == 'back':
+        squad.lingbackend.linguagembackend = request.args['nome']
+        dados = bcontroller.salvar(squad)
+    elif ling == 'front':
+        squad.lingfrontend.linguagemfrontend = request.args['nome']
+        dados = fcontroller.salvar(squad)
+    elif ling == 'banco':
+        squad.lingsgbds.nome_db = request.args['nome']
+        dados = sgcontroller.salvar(squad)
+    return render_template('cadastrado_ling_salvo.html', titulo_app = name, dados = dados)
 
 
 @app.route('/alterar')
