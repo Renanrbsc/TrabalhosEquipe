@@ -27,15 +27,15 @@
                     <tr>
                         <td>{{ i[0] }}</td>
                         <td>{{ i[1] }}</td>
+                        <th><a class = "" href="/alterar/back?id={{ i[0] }}">Editar</a> </th> 
+                        <th><a class = "" href="/excluir/back?id={{ i[0] }}">Excluir</a> </th> 
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
-        </div>
+        </div> 
         <br>
         <br>
-    <h1><a class="btn-editar"  href="/editarID={{ dados[0] }}" >Editar</a></h1>
-    <h1><a class="btn-excluir" href="/excluirID={{ dados[0] }}">Excluir</a></h1>
     <br>
     <h2><a class = 'center-link' href="/">Voltar a tela inicial</a> <br/></h2>
     <br>      
