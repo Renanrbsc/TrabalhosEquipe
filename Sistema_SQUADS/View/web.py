@@ -3,6 +3,11 @@ import sys
 
 sys.path.append(r'C:\Users\900159\Documents\TrabalhosEquipe\Sistema_SQUADS')
 sys.path.append(r'C:\Users\900145\Documents\TrabalhosEquipe\Sistema_SQUADS')
+#sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosSQL/Aula36 17-01')
+#sys.path.append('C:/Users/900145/Documents/TrabalhosEquipe/Sistema_SQUADS')
+#sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosSQL/Aula36 17-01')
+#sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosEquipe/Sistema_SQUADS')
+#sys.path.append('C:/Users/americo/Documents/Trabalhos python HBSis/TrabalhosEquipe/Sistema_SQUADS')
 
 from Controller.squads_controller import SquadsController
 from Controller.backend_controller import BackController
