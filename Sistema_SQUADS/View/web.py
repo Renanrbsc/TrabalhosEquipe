@@ -145,17 +145,37 @@ def excluir_squad():
 @app.route('/alterar/squad/atualizado')
 def recebe_alterar_dados():
     id = int(request.args['id'])
+    id_bd = None
 
     squad.name_squad = request.args['nome']
     squad.descricao = request.args['desc']
     squad.numero_pessoas = int(request.args['integ'])
     
-    squad.id_lingbackend = int(request.args['id_back'])
-    squad.id_lingfrontend = int(request.args['id_front'])
-    squad.id_lingsgbds = int(request.args['id_sgbd'])
+    id_fk = int(request.args['id_back']) # recebe valor html
+    id_bd = bcontroller.listar_codigo(id_fk) # verifica no BANCO DE DADOS
+    if id_bd: 
+        squad.id_lingbackend = id_bd[0] # Se verdadeiro salva a id
+    else:# SE NULO redireciona a pagina
+        id_squad = sqcontroller.listar_por_id(id)
+        return render_template('alterar_id_squad.html', titulo_app = name,dados = id_squad, id = id)
+
+    id_fk = int(request.args['id_front']) # recebe valor html
+    id_bd = fcontroller.listar_codigo(id_fk) # verifica no BANCO DE DADOS
+    if id_bd:
+        squad.id_lingfrontend = id_bd[0] # Se verdadeiro salva a id
+    else:# SE NULO redireciona a pagina
+        id_squad = sqcontroller.listar_por_id(id)
+        return render_template('alterar_id_squad.html', titulo_app = name,dados = id_squad, id = id)
+
+    id_fk = int(request.args['id_sgbd'])# recebe valor html
+    id_bd = sgcontroller.listar_codigo(id_fk) # verifica no BANCO DE DADOS
+    if id_bd:
+        squad.id_lingsgbds = id_bd[0] # Se verdadeiro salva a id
+    else:# SE NULO redireciona a pagina
+        id_squad = sqcontroller.listar_por_id(id)
+        return render_template('alterar_id_squad.html', titulo_app = name,dados = id_squad, id = id)
 
     sqcontroller.alterar(squad,id)
-
     tupla = sqcontroller.listar_por_id(id)
     return render_template('squad_atualizado.html',titulo_app = name, dados = tupla)
 
