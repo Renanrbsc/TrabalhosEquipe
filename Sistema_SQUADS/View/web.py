@@ -55,10 +55,10 @@ def listar_front():
     if ling == 'Frontend':
         dados = fcontroller.listar_todos()
 
-    if ling == 'Backend':
+    elif ling == 'Backend':
         dados = bcontroller.listar_todos()
 
-    if ling == 'SGBD':
+    elif ling == 'SGBD':
         dados = sgcontroller.listar_todos()
     return render_template('listar_linguagem.html', titulo_app = name, dados = dados,ling = ling)
 
@@ -99,14 +99,17 @@ def cadastrar_salvar():
     ling = request.args['ling']
     if ling == 'Backend':
         squad.lingbackend.linguagembackend = request.args['nome']
-        dados = sqcontroller.salvar_back(squad)
+        sqcontroller.salvar_back(squad)
+        dados = bcontroller.listar_todos()
     elif ling == 'Frontend':
         squad.lingfrontend.linguagemfrontend = request.args['nome']
-        dados = sqcontroller.salvar_front(squad)
+        sqcontroller.salvar_front(squad)
+        dados = fcontroller.listar_todos()
     elif ling == 'SGBD':
         squad.lingsgbds.nome_db = request.args['nome']
-        dados = sqcontroller.salvar_sgbd(squad)
-    return render_template('cadastrado_ling_salvo.html', titulo_app = name, dados = dados)
+        sqcontroller.salvar_sgbd(squad)
+        dados = sgcontroller.listar_todos()
+    return render_template('listar_linguagem.html', titulo_app = name,ling = ling, dados = dados)
 
 @app.route('/alterar/squad')
 def alterar():
@@ -143,9 +146,9 @@ def alterar_front():
     ling = request.args['ling']
     if ling == 'Frontend':
         tupla = fcontroller.listar_por_id(id)
-    if ling == 'Backend':
+    elif ling == 'Backend':
         tupla = bcontroller.listar_por_id(id)
-    if ling == 'SGBD':
+    elif ling == 'SGBD':
         tupla = sgcontroller.listar_por_id(id)
     return render_template('alterar_linguagem.html',titulo_app = name, dados = tupla, id= id,ling = ling)
 
@@ -158,11 +161,11 @@ def alterar_front_dados():
         squad.lingfrontend.linguagemfrontend = request.args['nome']
         squad.lingfrontend.id = id
         fcontroller.alterar(squad)
-    if ling == 'Backend':
+    elif ling == 'Backend':
         squad.lingbackend.linguagembackend = request.args['nome']
         squad.lingbackend.id = id
         bcontroller.alterar(squad)
-    if ling == 'SGBD':
+    elif ling == 'SGBD':
         squad.lingsgbds.nome_db = request.args['nome']
         squad.lingsgbds.id = id
         sgcontroller.alterar(squad)
