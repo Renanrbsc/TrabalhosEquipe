@@ -22,13 +22,14 @@
         <br>
         <h1 style = "text-align: center" class = 'center'>{{titulo_app}}</h1>
         <div>
+            <a type="hidden" name="ling" value="{{ling}}">
             <br><br>
-            <h1><p style = "margin-left: 15%; margin-right: 15%; text-align: center" class = 'title-center'>Editar Id Squad</p></h1>
+            <h1><p style = "margin-left: 15%; margin-right: 15%; text-align: center" class = 'title-center'>Alterar Linguagem {{ling}}</p></h1>
             <table id = 'tabela-listas'>
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Nome linguagem</th>
+                    <th>{{ling}}</th>
                 </tr>
             </thead>
             <tbody>
@@ -43,10 +44,12 @@
         <br>
         <br>
         <h3>
-            <form action="/alterar/front/dados">
+            <form action="/alterar/linguagem/dados">
                 <input type="hidden" name="id" value="{{dados[0]}}">
+                <input type="hidden" name="ling" value="{{ling}}">
+
                 <div class="cadastro-center">
-                    <a class = 'title-center'><label for="name">Nome Linguagem: </label><input type="text" name="nome" placeholder="{{ dados[1] }}"/></a><br><br><br>
+                    <a class = 'title-center'><label for="name">Nome: </label><input type="text" name="nome" placeholder="{{ dados[1] }}"/></a><br><br><br>
                     
                     <input type="submit" class = 'cadastro-center' value="Enviar"/>
                 </div>

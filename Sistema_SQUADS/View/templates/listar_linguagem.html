@@ -12,14 +12,15 @@
         <br>
         <h1 style = "text-align: center" class = 'center'>{{titulo_app}}</h1>
         <div>
+            <a type="hidden" name="ling" value="{{ling}}">
             <br><br>
-            <h1><p style = "margin-left: 15%; margin-right: 15%; text-align: center" class = 'title-center'>Linguagens Front-end</p></h1>
+            <h1><p style = "margin-left: 15%; margin-right: 15%; text-align: center" class = 'title-center'>Linguagens {{ ling }}</p></h1>
             <br>
             <table id = 'tabela-listas'>
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>LINGUAGEMFRONTEND</th>
+                        <th>Linguagem {{ling}}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,8 +28,8 @@
                     <tr>
                         <td>{{ i[0] }}</td>
                         <td>{{ i[1] }}</td>
-                        <th><a class = "" href="/alterar/front?id={{ i[0] }}">Editar</a> </th> 
-                        <th><a class = "" href="/excluir/front?id={{ i[0] }}">Excluir</a> </th>
+                        <th><a class = "" href="/alterar/linguagem?id={{ i[0] }}&ling={{ ling }}">Editar</a> </th> 
+                        <th><a class = "" href="/excluir/linguagem?id={{ i[0] }}&ling={{ ling }}">Excluir</a> </th>
                     </tr>
                     {% endfor %}
                 </tbody>

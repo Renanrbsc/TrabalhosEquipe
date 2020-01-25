@@ -6,7 +6,7 @@ sys.path.append(r'C:\Users\900145\Documents\TrabalhosEquipe\Sistema_SQUADS')
 #sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosSQL/Aula36 17-01')
 #sys.path.append('C:/Users/900145/Documents/TrabalhosEquipe/Sistema_SQUADS')
 #sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosSQL/Aula36 17-01')
-#sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosEquipe/Sistema_SQUADS')
+sys.path.append(r'C:/Users/Usuario/Documents/GitHub/TrabalhosEquipe/Sistema_SQUADS')
 #sys.path.append('C:/Users/americo/Documents/Trabalhos python HBSis/TrabalhosEquipe/Sistema_SQUADS')
 
 from Controller.squads_controller import SquadsController
@@ -49,20 +49,18 @@ def listar_todos():
 
     return render_template('listar_todos.html', titulo_app = name, dados = squads)
 
-@app.route('/listar/back')
-def listar_back():
-    back = bcontroller.listar_todos()
-    return render_template('listar_back.html', titulo_app = name, dados = back)
-
-@app.route('/listar/front')
+@app.route('/listar/linguagem')
 def listar_front():
-    front = fcontroller.listar_todos()
-    return render_template('listar_front.html', titulo_app = name, dados = front)
+    ling = request.args['ling']   
+    if ling == 'Frontend':
+        dados = fcontroller.listar_todos()
 
-@app.route('/listar/sgbd')
-def listar_sgbd():
-    sgbd = sgcontroller.listar_todos()
-    return render_template('listar_sgbd.html', titulo_app = name, dados = sgbd)
+    if ling == 'Backend':
+        dados = bcontroller.listar_todos()
+
+    if ling == 'SGBD':
+        dados = sgcontroller.listar_todos()
+    return render_template('listar_linguagem.html', titulo_app = name, dados = dados,ling = ling)
 
 @app.route('/cadastrar')
 def cadastrar():
@@ -109,16 +107,11 @@ def cadastrar_salvar():
         dados = sqcontroller.salvar_sgbd(squad)
     return render_template('cadastrado_ling_salvo.html', titulo_app = name, dados = dados)
 
-
 @app.route('/alterar/squad')
 def alterar():
     id = int(request.args['id'])
     id_squad = sqcontroller.listar_por_id(id)
     return render_template('alterar_id_squad.html', titulo_app = name,dados = id_squad, id = id)
-
-@app.route('/alterar/linguagens')
-def altera_lingua():
-    pass
 
 @app.route('/excluir/squad')
 def excluir():
@@ -143,21 +136,36 @@ def recebe_alterar_dados():
     tupla = sqcontroller.listar_por_id(id)
     return render_template('squad_atualizado.html',titulo_app = name, dados = tupla)
 
-@app.route('/alterar/front')
+@app.route('/alterar/linguagem')
 def alterar_front():
     id = int(request.args['id'])
-    tupla = fcontroller.listar_por_id(id)
+    ling = request.args['ling']
+    if ling == 'Frontend':
+        tupla = fcontroller.listar_por_id(id)
+    if ling == 'Backend':
+        tupla = bcontroller.listar_por_id(id)
+    if ling == 'SGBD':
+        tupla = sgcontroller.listar_por_id(id)
+    return render_template('alterar_linguagem.html',titulo_app = name, dados = tupla, id= id,ling = ling)
 
-    return render_template('alterar_front.html',titulo_app = name, dados = tupla, id= id)
-
-@app.route('/alterar/front/dados')
+@app.route('/alterar/linguagem/dados')
 def alterar_front_dados():
     id = int(request.args['id'])
-
-    squad.lingfrontend.linguagemfrontend = request.args['nome']
-    squad.lingfrontend.id = id
-    fcontroller.alterar(squad)
-    return redirect('/listar/front')
+    ling = request.args['ling']
+    print(ling)
+    if ling == 'Frontend':
+        squad.lingfrontend.linguagemfrontend = request.args['nome']
+        squad.lingfrontend.id = id
+        fcontroller.alterar(squad)
+    if ling == 'Backend':
+        squad.lingbackend.linguagembackend = request.args['nome']
+        squad.lingbackend.id = id
+        bcontroller.alterar(squad)
+    if ling == 'SGBD':
+        squad.lingsgbds.nome_db = request.args['nome']
+        squad.lingsgbds.id = id
+        sgcontroller.alterar(squad)
+    return redirect('/listar')
 
 #@app.route('/excluir')
 #def excluir():
