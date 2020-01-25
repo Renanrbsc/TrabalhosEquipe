@@ -70,9 +70,9 @@ elif op == 3:
     squad.descricao = 'llllllll'
     squad.numero_pessoas = 7
     
-    squad.lingbackend = int(input('Digite a ID linguagem BACKEND: '))
-    squad.lingfrontend = int(input('Digite a ID linguagem FRONTEND: '))
-    squad.lingsgbds = int(input('Digite a ID linguagem SGBDS: '))
+    squad.id_lingbackend = int(input('Digite a ID linguagem BACKEND: '))
+    squad.id_lingfrontend = int(input('Digite a ID linguagem FRONTEND: '))
+    squad.id_lingsgbds = int(input('Digite a ID linguagem SGBDS: '))
 
     controller.alterar(squad,id)
 
