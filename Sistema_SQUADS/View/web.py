@@ -118,7 +118,7 @@ def alterar():
     return render_template('alterar_id_squad.html', titulo_app = name,dados = id_squad, id = id)
 
 @app.route('/excluir/squad')
-def excluir():
+def excluir_squad():
     id = int(request.args['id'])
     sqcontroller.deletar(id)
     return redirect('/listar/todos')
@@ -171,12 +171,19 @@ def alterar_front_dados():
         sgcontroller.alterar(squad)
     return redirect('/listar')
 
-#@app.route('/excluir')
-#def excluir():
-#    id = int(request.args['id'])
-#    controller.deletar(id)
-#    if id_endereco != 'None':
-#        endereco_controller.deletar(id_endereco)
-#    return redirect('/listar')
+@app.route('/excluir/linguagem')
+def excluir_linguagem():
+    id = int(request.args['id'])
+    ling = request.args['ling']
+    if ling == 'Backend':
+        bcontroller.deletar(id)
+        dados = bcontroller.listar_todos()
+    if ling == 'Frontend':
+        fcontroller.deletar(id)
+        dados = fcontroller.listar_todos()
+    if ling == 'SGBD':
+        sgcontroller.deletar(id)
+        dados = sgcontroller.listar_todos()
+    return render_template('listar_linguagem.html', titulo_app = name, dados = dados,ling = ling)
 
 app.run(debug=True)
