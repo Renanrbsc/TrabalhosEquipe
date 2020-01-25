@@ -50,9 +50,9 @@ class SquadsDao:
             NAME_SQUAD = '{squads.name_squad}',
             DESCRICAO = '{squads.descricao}',
             NUMERO_PESSOAS = {squads.numero_pessoas},
-            ID_BACKEND = {squads.lingbackend},
-            ID_FRONTEND = {squads.lingfrontend},
-            ID_SGBDS = {squads.lingsgbds}
+            ID_BACKEND = {squads.id_lingbackend},
+            ID_FRONTEND = {squads.id_lingfrontend},
+            ID_SGBDS = {squads.id_lingsgbds}
         WHERE ID = {id}
         """
         self.cursor.execute(comando_sql)

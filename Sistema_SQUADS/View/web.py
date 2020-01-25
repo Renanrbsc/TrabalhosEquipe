@@ -131,9 +131,9 @@ def recebe_alterar_dados():
     squad.descricao = request.args['desc']
     squad.numero_pessoas = int(request.args['integ'])
     
-    squad.lingbackend = int(request.args['id_back'])
-    squad.lingfrontend = int(request.args['id_front'])
-    squad.lingsgbds = int(request.args['id_sgbd'])
+    squad.id_lingbackend = int(request.args['id_back'])
+    squad.id_lingfrontend = int(request.args['id_front'])
+    squad.id_lingsgbds = int(request.args['id_sgbd'])
 
     sqcontroller.alterar(squad,id)
 
