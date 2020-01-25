@@ -82,7 +82,8 @@ def cadastrado():
     id_salvo = sqcontroller.salvar(squad) 
     squad_dev = sqcontroller.listar_por_id(id_salvo)
 
-    return render_template('cadastrado.html', titulo_app = name, dados = squad_dev)
+
+    return render_template('listar_codigo.html', titulo_app = name,dados = squad_dev, id = id_salvo)
 
 @app.route('/cadastrar/ling')
 def cadastrar_linguagens():
