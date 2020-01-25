@@ -79,8 +79,8 @@ def cadastrado():
     squad.lingfrontend.id = int(request.args['id_front'])
     squad.lingsgbds.id = int(request.args['id_sgbd'])
 
-    id_salvo = bcontroller.salvar(squad) 
-    squad_dev = bcontroller.listar_por_id(id_salvo)
+    id_salvo = sqcontroller.salvar(squad) 
+    squad_dev = sqcontroller.listar_por_id(id_salvo)
 
     return render_template('cadastrado.html', titulo_app = name, dados = squad_dev)
 
@@ -96,13 +96,13 @@ def cadastrar_tipo_back():
 @app.route('/cadastrar/ling/cadastrado')
 def cadastrar_salvar():
     ling = request.args['ling']
-    if ling == 'back':
+    if ling == 'Backend':
         squad.lingbackend.linguagembackend = request.args['nome']
         dados = sqcontroller.salvar_back(squad)
-    elif ling == 'front':
+    elif ling == 'Frontend':
         squad.lingfrontend.linguagemfrontend = request.args['nome']
         dados = sqcontroller.salvar_front(squad)
-    elif ling == 'banco':
+    elif ling == 'SGBD':
         squad.lingsgbds.nome_db = request.args['nome']
         dados = sqcontroller.salvar_sgbd(squad)
     return render_template('cadastrado_ling_salvo.html', titulo_app = name, dados = dados)
