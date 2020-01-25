@@ -11,6 +11,9 @@ class FrontController:
     def listar_por_id(self, id):
         return self.dao.listar_por_id(id)
 
+    def listar_codigo(self, id):
+        return self.dao.listar_codigo(id)
+
     def salvar(self, front:FrontEnd):
         return self.dao.salvar(front)     
 

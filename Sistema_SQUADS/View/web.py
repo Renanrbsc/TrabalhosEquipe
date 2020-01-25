@@ -72,17 +72,39 @@ def cadastrar_squad():
 
 @app.route('/cadastrar/squad/inserir')
 def cadastrado():
+    id_db = 0
     squad.name_squad = request.args['nome']
     squad.descricao = request.args['desc']
     squad.numero_pessoas = int(request.args['integ'])
-    squad.lingbackend.id = int(request.args['id_back'])
-    squad.lingfrontend.id = int(request.args['id_front'])
-    squad.lingsgbds.id = int(request.args['id_sgbd'])
+    id = int(request.args['id_back'])
+    id_bd = bcontroller.listar_codigo(id)
+    print(id_bd)
+    if id_db:
+        print('estou aqui')
+        print(id_bd)
+        print(type(id_bd))
+        squad.lingbackend.id = id
+    else:
+        return redirect('/cadastrar/squad')
 
+    id = int(request.args['id_front'])
+    id_bd = fcontroller.listar_codigo(id)
+    if id_db:
+        print('estou aqui')
+        squad.lingfrontend.id = id
+    else:
+        return redirect('/cadastrar/squad')
+    
+    id = int(request.args['id_sgbd'])
+    id_bd = sgcontroller.listar_codigo(id)
+    if id_db:
+        print('estou aqui')
+        squad.lingsgbds.id = id
+    else:
+        return redirect('/cadastrar/squad')
     id_salvo = sqcontroller.salvar(squad) 
+    print(id_salvo)
     squad_dev = sqcontroller.listar_por_id(id_salvo)
-
-
     return render_template('listar_codigo.html', titulo_app = name,dados = squad_dev, id = id_salvo)
 
 @app.route('/cadastrar/ling')

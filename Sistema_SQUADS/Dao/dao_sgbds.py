@@ -19,6 +19,12 @@ class DaoSgbds:
         self.cursor.execute(comando_sql)
         resultado = self.cursor.fetchone()
         return resultado
+    
+    def listar_codigo(self,id):
+        comando_sql = f"SELECT ID FROM SGBDS WHERE ID = {id}"
+        self.cursor.execute(comando_sql)
+        resultado = self.cursor.fetchone()
+        return resultado
 
     def salvar(self, db:Sgbds):
         comando_sql = f"""INSERT INTO SGBDS

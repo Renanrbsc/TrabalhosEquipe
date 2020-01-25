@@ -20,6 +20,12 @@ class DaoBackEnd:
         resultado = self.cursor.fetchone()
         return resultado
 
+    def listar_codigo(self,id):
+        comando_sql = f"SELECT ID FROM BACKEND WHERE ID = {id}"
+        self.cursor.execute(comando_sql)
+        resultado = self.cursor.fetchone()
+        return resultado
+
     def salvar(self, backend:BackEnd):
         comando_sql = f"""INSERT INTO BACKEND
         (

@@ -11,6 +11,9 @@ class SgbdsController:
     def listar_por_id(self, id):
         return self.dao.listar_por_id(id)
 
+    def listar_codigo(self, id):
+        return self.dao.listar_codigo(id)
+
     def salvar(self, db:Sgbds):
         return self.dao.salvar(db)
         
