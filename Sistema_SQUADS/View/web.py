@@ -72,39 +72,36 @@ def cadastrar_squad():
 
 @app.route('/cadastrar/squad/inserir')
 def cadastrado():
-    id_db = 0
+    id_bd = None
     squad.name_squad = request.args['nome']
     squad.descricao = request.args['desc']
     squad.numero_pessoas = int(request.args['integ'])
-    id = int(request.args['id_back'])
-    id_bd = bcontroller.listar_codigo(id)
-    print(id_bd)
-    if id_db:
-        print('estou aqui')
-        print(id_bd)
-        print(type(id_bd))
-        squad.lingbackend.id = id
+
+    id = int(request.args['id_back']) # recebe valor html
+    id_bd = bcontroller.listar_codigo(id) # verifica no BANCO DE DADOS
+    if id_bd: # SE NULO redireciona a pagina
+        squad.lingbackend.id = id_bd[0] # Se verdadeiro salva a id
     else:
         return redirect('/cadastrar/squad')
 
-    id = int(request.args['id_front'])
-    id_bd = fcontroller.listar_codigo(id)
-    if id_db:
-        print('estou aqui')
-        squad.lingfrontend.id = id
+    id = int(request.args['id_front']) # recebe valor html
+    id_bd = fcontroller.listar_codigo(id) # verifica no BANCO DE DADOS
+    if id_bd:# SE NULO redireciona a pagina
+        squad.lingfrontend.id = id_bd[0] # Se verdadeiro salva a id
+    else:
+        return redirect('/cadastrar/squad')
+
+    id = int(request.args['id_sgbd'])# recebe valor html
+    id_bd = sgcontroller.listar_codigo(id) # verifica no BANCO DE DADOS
+    if id_bd:# SE NULO redireciona a pagina
+        squad.lingsgbds.id = id_bd[0] # Se verdadeiro salva a id
     else:
         return redirect('/cadastrar/squad')
     
-    id = int(request.args['id_sgbd'])
-    id_bd = sgcontroller.listar_codigo(id)
-    if id_db:
-        print('estou aqui')
-        squad.lingsgbds.id = id
-    else:
-        return redirect('/cadastrar/squad')
-    id_salvo = sqcontroller.salvar(squad) 
+    id_salvo = sqcontroller.salvar(squad) # salva o dados no Banco de dados
     print(id_salvo)
     squad_dev = sqcontroller.listar_por_id(id_salvo)
+    
     return render_template('listar_codigo.html', titulo_app = name,dados = squad_dev, id = id_salvo)
 
 @app.route('/cadastrar/ling')
