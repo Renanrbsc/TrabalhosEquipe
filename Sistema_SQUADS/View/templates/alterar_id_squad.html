@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{titulo_app}} - Dados do ID</title>
-    <link rel="stylesheet" href="../../static/layout.css">
+    <link rel="stylesheet" href="../static/layout.css">
 </head>
 <body>
     <div class="retangulo">
@@ -28,7 +28,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>{{ dados[0] }}</td>
+                    <th>{{ dados[0] }}</th>
                     <td>{{ dados[1] }}</td>
                     <td>{{ dados[2] }}</td>
                     <td>{{ dados[3] }}</td>
@@ -46,12 +46,12 @@
             <form action="/alterar/squad/atualizado">
                 <input type="hidden" name="id" value="{{dados[0]}}">
                 <div class="cadastro-center">
-                    <a class = 'title-center'><label for="name">Nome Squad: </label><input type="text" name="nome" placeholder="{{ dados[1] }}"/></a><br><br><br>
-                    <a class = 'title-center'><label for="desc">Descrição: </label><input type="text" name="desc" placeholder="{{ dados[2] }}"/></a><br><br><br>
-                    <a class = 'title-center'><label for="quant">Integrantes: </label><input type="text" name="integ" placeholder="{{ dados[3] }}"/></a><br><br><br>
-                    <a class = 'title-center'><label for="back">ID_Backend: </label><input type="text" name="id_back" placeholder="{{ dados[4] }} "/></a><br><br><br>
-                    <a class = 'title-center'><label for="front">ID_Frontend: </label><input type="text" name="id_front" placeholder="{{ dados[5] }}"/></a><br><br><br>
-                    <a class = 'title-center'><label for="bd">ID_SGBD: </label><input type="text" name="id_sgbd" placeholder="{{ dados[6] }}"/></a><br><br><br>
+                    <a class = 'title-center'><label for="name">Nome Squad: </label><input type="text" name="nome" value="{{ dados[1] }}" placeholder="{{ dados[1] }}"/></a><br><br><br>
+                    <a class = 'title-center'><label for="desc">Descrição: </label><input type="text" name="desc" value="{{ dados[2] }}"  placeholder="{{ dados[2] }}"/></a><br><br><br>
+                    <a class = 'title-center'><label for="quant">Integrantes: </label><input type="text" name="integ" value="{{ dados[3] }}"  placeholder="{{ dados[3] }}"/></a><br><br><br>
+                    <a class = 'title-center'><label for="back">ID_Backend: </label><input type="text" name="id_back" value="{{ dados[4] }}" placeholder="{{ dados[4] }} "/></a><br><br><br>
+                    <a class = 'title-center'><label for="front">ID_Frontend: </label><input type="text" name="id_front" value="{{ dados[5] }}" placeholder="{{ dados[5] }}"/></a><br><br><br>
+                    <a class = 'title-center'><label for="bd">ID_SGBD: </label><input type="text" name="id_sgbd" value="{{ dados[6] }}" placeholder="{{ dados[6] }}"/></a><br><br><br>
                     <input type="submit" class = 'cadastro-center' value="Enviar"/>
                 </div>
             </form>
