@@ -145,35 +145,21 @@ def excluir_squad():
 @app.route('/alterar/squad/atualizado')
 def recebe_alterar_dados():
     id = int(request.args['id'])
-    id_bd = None
 
     squad.name_squad = request.args['nome']
     squad.descricao = request.args['desc']
     squad.numero_pessoas = int(request.args['integ'])
     
-    id_fk = int(request.args['id_back']) # recebe valor html
-    id_bd = bcontroller.listar_codigo(id_fk) # verifica no BANCO DE DADOS
-    if id_bd: 
-        squad.id_lingbackend = id_bd[0] # Se verdadeiro salva a id
-    else:# SE NULO redireciona a pagina
+    id_back = request.args['id_back'] # recebe valor html
+    id_front = request.args['id_front'] # recebe valor html
+    id_sgbd = request.args['id_sgbd']# recebe valor html
+    if id_back == '' or id_front == '' or id_sgbd == '': # SE NULO redireciona a pagina
         id_squad = sqcontroller.listar_por_id(id)
         return render_template('alterar_id_squad.html', titulo_app = name,dados = id_squad, id = id)
-
-    id_fk = int(request.args['id_front']) # recebe valor html
-    id_bd = fcontroller.listar_codigo(id_fk) # verifica no BANCO DE DADOS
-    if id_bd:
-        squad.id_lingfrontend = id_bd[0] # Se verdadeiro salva a id
-    else:# SE NULO redireciona a pagina
-        id_squad = sqcontroller.listar_por_id(id)
-        return render_template('alterar_id_squad.html', titulo_app = name,dados = id_squad, id = id)
-
-    id_fk = int(request.args['id_sgbd'])# recebe valor html
-    id_bd = sgcontroller.listar_codigo(id_fk) # verifica no BANCO DE DADOS
-    if id_bd:
-        squad.id_lingsgbds = id_bd[0] # Se verdadeiro salva a id
-    else:# SE NULO redireciona a pagina
-        id_squad = sqcontroller.listar_por_id(id)
-        return render_template('alterar_id_squad.html', titulo_app = name,dados = id_squad, id = id)
+    else:
+        squad.id_lingbackend = int(id_back) # Se verdadeiro salva a id
+        squad.id_lingfrontend = int(id_front) # Se verdadeiro salva a id
+        squad.id_lingsgbds = int(id_sgbd) # Se verdadeiro salva a id
 
     sqcontroller.alterar(squad,id)
     tupla = sqcontroller.listar_por_id(id)

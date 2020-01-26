@@ -46,12 +46,60 @@
             <form action="/alterar/squad/atualizado">
                 <input type="hidden" name="id" value="{{dados[0]}}">
                 <div class="cadastro-center">
-                    <a class = 'title-center'><label for="name">Nome Squad: </label><input type="text" name="nome" value="{{ dados[1] }}" placeholder="{{ dados[1] }}"/></a><br><br><br>
-                    <a class = 'title-center'><label for="desc">Descrição: </label><input type="text" name="desc" value="{{ dados[2] }}"  placeholder="{{ dados[2] }}"/></a><br><br><br>
-                    <a class = 'title-center'><label for="quant">Integrantes: </label><input type="text" name="integ" value="{{ dados[3] }}"  placeholder="{{ dados[3] }}"/></a><br><br><br>
-                    <a class = 'title-center'><label for="back">ID_Backend: </label><input type="text" name="id_back" value="{{ dados[4] }}" placeholder="{{ dados[4] }} "/></a><br><br><br>
-                    <a class = 'title-center'><label for="front">ID_Frontend: </label><input type="text" name="id_front" value="{{ dados[5] }}" placeholder="{{ dados[5] }}"/></a><br><br><br>
-                    <a class = 'title-center'><label for="bd">ID_SGBD: </label><input type="text" name="id_sgbd" value="{{ dados[6] }}" placeholder="{{ dados[6] }}"/></a><br><br><br>
+                    <div>
+                        <label for="name">Nome Squad: </label>
+                        <input type="text" name="nome" value="{{ dados[1] }}" placeholder="{{ dados[1] }}"/>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="desc">Descrição: </label>
+                        <input type="text" name="desc" value="{{ dados[2] }}" placeholder="{{ dados[2] }}"/>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="quant">Integrantes: </label>
+                        <select id="id_integ" name="integ" value="{{ dados[3] }}" placeholder="{{ dados[3] }}">
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                            <option value="9">9</option>
+                            <option value="10">10</option>
+                        </select>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="back">ID_Backend: </label>
+                        <select id="id_back" name="id_back" value="{{ dados[4] }}" placeholder="{{ dados[4] }}">
+                            {% for i in dados_back %}
+                                <option value="{{ i[0] }}">{{ i[0] }} - {{ i[1] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="front">ID_Frontend: </label>
+                        <select id="id_front" name="id_front" value="{{ dados[5] }}" placeholder="{{ dados[5] }}">
+                            {% for i in dados_front %}
+                                <option value="{{ i[0] }}">{{ i[0] }} - {{ i[1] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="bd">ID_SGBD: </label>
+                        <select id="id_sgbd" name="id_sgbd" value="{{ dados[6] }}" placeholder="{{ dados[6] }}">
+                            {% for i in dados_sgbd %}
+                                <option value="{{ i[0] }}">{{ i[0] }} - {{ i[1] }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <br>
                     <input type="submit" class = 'cadastro-center' value="Enviar"/>
                 </div>
             </form>
@@ -62,3 +110,9 @@
     </div>
 </body>
 </html>
+
+
+value="{{ dados[1] }}" placeholder="{{ dados[1] }}
+
+
+
