@@ -1,6 +1,8 @@
+#---------# Sys Path #---------#
 from flask import Flask, render_template, request, redirect
 import sys
 
+#---------# Sys Path #---------#
 sys.path.append(r'C:\Users\900159\Documents\TrabalhosEquipe\Sistema_SQUADS')
 sys.path.append(r'C:\Users\900145\Documents\TrabalhosEquipe\Sistema_SQUADS')
 #sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosSQL/Aula36 17-01')
@@ -9,6 +11,7 @@ sys.path.append(r'C:\Users\900145\Documents\TrabalhosEquipe\Sistema_SQUADS')
 sys.path.append(r'C:/Users/Usuario/Documents/GitHub/TrabalhosEquipe/Sistema_SQUADS')
 #sys.path.append('C:/Users/americo/Documents/Trabalhos python HBSis/TrabalhosEquipe/Sistema_SQUADS')
 
+#---------# Controllers #---------#
 from Controller.squads_controller import SquadsController
 from Controller.backend_controller import BackController
 from Controller.frontend_controller import FrontController
@@ -18,15 +21,22 @@ from Model.backend import BackEnd
 from Model.frontend import FrontEnd
 from Model.sgbds import Sgbds
 
+#---------# Flask #---------#
 app = Flask(__name__)
+
+#---------# Models #---------#
 squad = Squads()
 back = BackEnd()
 front = FrontEnd()
 bd= Sgbds()
+
+#---------# Controllers #---------#
 sqcontroller = SquadsController()
 sgcontroller = SgbdsController()
 bcontroller= BackController()
 fcontroller = FrontController()
+
+#---------# Nome Website #---------#
 name = 'Sistema de Consulta Times de Desenvolvimento'
 
 @app.route('/')
@@ -68,36 +78,26 @@ def cadastrar():
 
 @app.route('/cadastrar/squad')
 def cadastrar_squad():
-    return render_template('cadastrar_squad.html', titulo_app = name)
+    dados_front = fcontroller.listar_todos()
+    dados_back = bcontroller.listar_todos()
+    dados_sgbd = sgcontroller.listar_todos()
+    return render_template('cadastrar_squad.html', titulo_app = name,dados_front = dados_front,dados_back = dados_back,dados_sgbd = dados_sgbd)
 
 @app.route('/cadastrar/squad/inserir')
 def cadastrado():
-    id_bd = None
     squad.name_squad = request.args['nome']
     squad.descricao = request.args['desc']
     squad.numero_pessoas = int(request.args['integ'])
-
-    id = int(request.args['id_back']) # recebe valor html
-    id_bd = bcontroller.listar_codigo(id) # verifica no BANCO DE DADOS
-    if id_bd: # SE NULO redireciona a pagina
-        squad.lingbackend.id = id_bd[0] # Se verdadeiro salva a id
-    else:
+    id_back = request.args['id_back'] # recebe valor html
+    id_front = request.args['id_front'] # recebe valor html
+    id_sgbd = request.args['id_sgbd']# recebe valor html
+    if id_back == '' or id_front == '' or id_sgbd == '': # SE NULO redireciona a pagina
         return redirect('/cadastrar/squad')
-
-    id = int(request.args['id_front']) # recebe valor html
-    id_bd = fcontroller.listar_codigo(id) # verifica no BANCO DE DADOS
-    if id_bd:# SE NULO redireciona a pagina
-        squad.lingfrontend.id = id_bd[0] # Se verdadeiro salva a id
     else:
-        return redirect('/cadastrar/squad')
+        squad.lingbackend.id = int(id_back) # Se verdadeiro salva a id
+        squad.lingfrontend.id = int(id_front) # Se verdadeiro salva a id
+        squad.lingsgbds.id = int(id_sgbd) # Se verdadeiro salva a id
 
-    id = int(request.args['id_sgbd'])# recebe valor html
-    id_bd = sgcontroller.listar_codigo(id) # verifica no BANCO DE DADOS
-    if id_bd:# SE NULO redireciona a pagina
-        squad.lingsgbds.id = id_bd[0] # Se verdadeiro salva a id
-    else:
-        return redirect('/cadastrar/squad')
-    
     id_salvo = sqcontroller.salvar(squad) # salva o dados no Banco de dados
     print(id_salvo)
     squad_dev = sqcontroller.listar_por_id(id_salvo)

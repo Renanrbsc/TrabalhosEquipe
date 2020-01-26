@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{titulo_app}} - Tipo de busca </title>
-    <link rel="stylesheet" href="../../static/layout.css">
+    <link rel="stylesheet" href="../static/layout.css">
 
 </head>
 <body>
@@ -20,11 +20,14 @@
             <form action="/cadastrar/ling/cadastrado">
                 <input type="hidden" name="ling" value="{{ling}}">
                 <div class="cadastro-center">
-                    <a class = 'title-center'><label for="nome">Nome {{ling}}</label><input type="text" name="nome" placeholder="Informe o nome da linguagem:"/></a><br><br><br>
+                    <p class = 'title-center'>
+                        <label for="nome">Nome {{ling}}</label>
+                        <input type="text" name="nome" placeholder="Informe o nome da linguagem:"/>
+                    </p>
+                    <br>
                     <input type="submit" class = 'cadastro-center' value="Enviar"/>
                 </div>
-            </form>
-            </h2>   
+            </form>   
             <br>
             <h2><a class = 'center-link' href="/">Voltar a tela inicial</a> <br> <br></h2>
         </div>
