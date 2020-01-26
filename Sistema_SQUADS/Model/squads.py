@@ -18,7 +18,3 @@ class Squads:
     
     def __str__(self):
         return f'{self.id};{self.name_squad};{self.descricao};{self.numero_pessoas};{self.lingbackend.id};{self.lingfrontend.id};{self.lingsgbds.id}'
-
-
-
-    print('ola')
