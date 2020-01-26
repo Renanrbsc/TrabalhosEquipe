@@ -56,7 +56,6 @@ def editar():
 @app.route('/listar/todos')
 def listar_todos():
     squads = sqcontroller.listar_todos()
-
     return render_template('listar_todos.html', titulo_app = name, dados = squads)
 
 @app.route('/listar/linguagem')
@@ -134,7 +133,10 @@ def cadastrar_salvar():
 def alterar():
     id = int(request.args['id'])
     id_squad = sqcontroller.listar_por_id(id)
-    return render_template('alterar_id_squad.html', titulo_app = name,dados = id_squad, id = id)
+    dados_front = fcontroller.listar_todos()
+    dados_back = bcontroller.listar_todos()
+    dados_sgbd = sgcontroller.listar_todos()    
+    return render_template('alterar_id_squad.html', titulo_app = name,dados = id_squad, id = id,dados_front = dados_front,dados_back = dados_back,dados_sgbd = dados_sgbd)
 
 @app.route('/excluir/squad')
 def excluir_squad():

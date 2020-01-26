@@ -58,7 +58,8 @@
                     <br>
                     <div>
                         <label for="quant">Integrantes: </label>
-                        <select id="id_integ" name="integ" value="{{ dados[3] }}" placeholder="{{ dados[3] }}">
+                        <select id="id_integ" name="integ" >
+                            <option value="{{ dados[3] }}">{{ dados[3] }}</option>
                             <option value="0">0</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -75,7 +76,8 @@
                     <br>
                     <div>
                         <label for="back">ID_Backend: </label>
-                        <select id="id_back" name="id_back" value="{{ dados[4] }}" placeholder="{{ dados[4] }}">
+                        <select id="id_back" name="id_back">
+                            <option value="{{ dados[7] }}">{{ dados[7] }} - {{ dados[8] }}</option>
                             {% for i in dados_back %}
                                 <option value="{{ i[0] }}">{{ i[0] }} - {{ i[1] }}</option>
                             {% endfor %}
@@ -85,6 +87,7 @@
                     <div>
                         <label for="front">ID_Frontend: </label>
                         <select id="id_front" name="id_front" value="{{ dados[5] }}" placeholder="{{ dados[5] }}">
+                            <option value="{{ dados[9] }}">{{ dados[9] }} - {{ dados[10] }}</option>
                             {% for i in dados_front %}
                                 <option value="{{ i[0] }}">{{ i[0] }} - {{ i[1] }}</option>
                             {% endfor %}
@@ -94,6 +97,7 @@
                     <div>
                         <label for="bd">ID_SGBD: </label>
                         <select id="id_sgbd" name="id_sgbd" value="{{ dados[6] }}" placeholder="{{ dados[6] }}">
+                            <option value="{{ dados[11] }}">{{ dados[11] }} - {{ dados[12] }}</option>
                             {% for i in dados_sgbd %}
                                 <option value="{{ i[0] }}">{{ i[0] }} - {{ i[1] }}</option>
                             {% endfor %}
@@ -110,9 +114,4 @@
     </div>
 </body>
 </html>
-
-
-value="{{ dados[1] }}" placeholder="{{ dados[1] }}
-
-
 
