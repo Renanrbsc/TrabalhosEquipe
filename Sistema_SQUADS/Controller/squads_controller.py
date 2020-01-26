@@ -29,31 +29,18 @@ class SquadsController:
         return self.dao.salvar(squads)
 
     def salvar_back(self, squads:Squads):
-        if squads.lingbackend.linguagembackend == '':
-            print('Dados não informados!')
-        else:
-            id = self.backend_controller.salvar(squads.lingbackend)
-
-            return self.backend_controller.listar_por_id(id)
+        id = self.backend_controller.salvar(squads.lingbackend)
+        return self.backend_controller.listar_por_id(id)
 
     def salvar_front(self, squads:Squads):
-        if squads.lingfrontend.linguagemfrontend == '':
-            print('Dados não informados!')
-        else:
-            id = self.frontend_controller.salvar(squads.lingfrontend)
-
-            return self.frontend_controller.listar_por_id(id)
+        id = self.frontend_controller.salvar(squads.lingfrontend)
+        return self.frontend_controller.listar_por_id(id)
 
     def salvar_sgbd(self, squads:Squads):
-        if squads.lingsgbds.nome_db == '':
-            print('Dados não informados!')
-        else:
-            id = self.sgbds_controller.salvar(squads.lingsgbds)
-
-            return self.sgbds_controller.listar_por_id(id)
+        id = self.sgbds_controller.salvar(squads.lingsgbds)
+        return self.sgbds_controller.listar_por_id(id)
 
     def alterar(self, squads:Squads, id):
-
         self.dao.alterar(squads, id)
 
     def deletar(self, id):

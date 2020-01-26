@@ -20,12 +20,12 @@
                 <div class="cadastro-center">
                     <div>
                         <label for="name">Nome Squad: </label>
-                        <input type="text" name="nome" placeholder="Informe o Nome do Squad.."/>
+                        <input type="text" id="name" name="nome" placeholder="Informe o Nome do Squad.."/>
                     </div>
                     <br>
                     <div>
                         <label for="desc">Descrição: </label>
-                        <textarea type="text" name="desc" placeholder="Informe a descrição do squad.."></textarea>
+                        <textarea type="text" id="desc" name="desc" placeholder="Informe a descrição do squad.."></textarea>
                     </div>
                     <br>
                     <div>
@@ -46,7 +46,7 @@
                     </div>
                     <br>
                     <div>
-                        <label for="back">ID_Backend: </label>
+                        <label for="back">Linguagem Back-end: </label>
                         <select id="id_back" name="id_back">
                             <option value="">Selecione uma Linguagem Back-end</option>
                             {% for i in dados_back %}
@@ -56,7 +56,7 @@
                     </div>
                     <br>
                     <div>
-                        <label for="front">ID_Frontend: </label>
+                        <label for="front">Framework Front-end: </label>
                         <select id="id_front" name="id_front">
                             <option value="">Selecione um Framework Front-end</option>
                             {% for i in dados_front %}
@@ -66,7 +66,7 @@
                     </div>
                     <br>
                     <div>
-                        <label for="bd">ID_SGBD: </label>
+                        <label for="bd">Gerenciador Database: </label>
                         <select id="id_sgbd" name="id_sgbd">
                             <option value="">Selecione um Gerenciador de Database</option>
                             {% for i in dados_sgbd %}
@@ -74,6 +74,9 @@
                             {% endfor %}
                         </select>
                     </div>
+                    <br>
+                    <input type="reset" value="Limpar">
+                    <br>
                     <br>
                     <input type="submit" class = 'cadastro-center' value="Enviar"/>
                 </div>

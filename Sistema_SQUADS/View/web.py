@@ -115,19 +115,23 @@ def cadastrar_tipo_back():
 @app.route('/cadastrar/ling/cadastrado')
 def cadastrar_salvar():
     ling = request.args['ling']
-    if ling == 'Backend':
-        squad.lingbackend.linguagembackend = request.args['nome']
-        sqcontroller.salvar_back(squad)
-        dados = bcontroller.listar_todos()
-    elif ling == 'Frontend':
-        squad.lingfrontend.linguagemfrontend = request.args['nome']
-        sqcontroller.salvar_front(squad)
-        dados = fcontroller.listar_todos()
-    elif ling == 'SGBD':
-        squad.lingsgbds.nome_db = request.args['nome']
-        sqcontroller.salvar_sgbd(squad)
-        dados = sgcontroller.listar_todos()
-    return render_template('listar_linguagem.html', titulo_app = name,ling = ling, dados = dados)
+    nome = request.args['nome']
+    if nome == '':
+        return render_template('cadastrar_linguagens.html', titulo_app = name, ling = ling)
+    else:
+        if ling == 'Backend':
+            squad.lingbackend.linguagembackend = nome
+            sqcontroller.salvar_back(squad)
+            dados = bcontroller.listar_todos()
+        elif ling == 'Frontend':
+            squad.lingfrontend.linguagemfrontend = nome
+            sqcontroller.salvar_front(squad)
+            dados = fcontroller.listar_todos()
+        elif ling == 'SGBD':
+            squad.lingsgbds.nome_db = nome
+            sqcontroller.salvar_sgbd(squad)
+            dados = sgcontroller.listar_todos()
+        return render_template('listar_linguagem.html', titulo_app = name,ling = ling, dados = dados)
 
 @app.route('/alterar/squad')
 def alterar():
