@@ -49,11 +49,11 @@
                 <input type="hidden" name="ling" value="{{ling}}">
 
                 <div class="cadastro-center">
-                    <p class = 'title-center'>
-                        <label for="name">Nome {{ling}}: </label>
-                        <input type="text" name="nome" value="{{ dados[1] }}" placeholder="{{ dados[1] }}"/>
+                    <div>
+                        <label>Nome {{ling}}: </label>
+                        <input type="text" id="nome" name="nome" value="{{ dados[1] }}" placeholder="{{ dados[1] }}"/>
                         <input type="reset" id="nome" value="Limpar">
-                    </p>                    
+                    </div>                    
                     <br>
                     <input type="submit" class = 'cadastro-center' value="Enviar"/>
                 </div>
