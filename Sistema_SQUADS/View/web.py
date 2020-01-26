@@ -177,7 +177,7 @@ def recebe_alterar_dados():
 
     sqcontroller.alterar(squad,id)
     tupla = sqcontroller.listar_por_id(id)
-    return render_template('squad_atualizado.html',titulo_app = name, dados = tupla)
+    return render_template('listar_codigo.html', titulo_app = name, dados = tupla)
 
 @app.route('/alterar/linguagem')
 def alterar_front():
