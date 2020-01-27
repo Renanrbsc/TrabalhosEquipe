@@ -94,7 +94,7 @@ def cadastrado():
     id_back = request.args['id_back'] # recebe valor html
     id_front = request.args['id_front'] # recebe valor html
     id_sgbd = request.args['id_sgbd']# recebe valor html
-    if id_back == '' or id_front == '' or id_sgbd == '': # SE NULO redireciona a pagina
+    if id_back == '' or id_front == '' or id_sgbd == '' or squad.name_squad == '' or squad.descricao == '' : # SE NULO redireciona a pagina
         return redirect('/cadastrar/squad')
     else:
         squad.lingbackend.id = int(id_back) # Se verdadeiro salva a id
