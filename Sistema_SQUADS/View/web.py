@@ -49,8 +49,12 @@ def listar():
 
 @app.route('/listar/codigo')
 def editar():
-    id = int(request.args['id'])
+    id = request.args['id']
+    if not id.isdigit():
+        return redirect('/listar')
     squad = sqcontroller.listar_por_id(id)
+    if squad == None:
+        return redirect('/listar')
     return render_template('listar_codigo.html', titulo_app = name, dados = squad)
 
 @app.route('/listar/todos')
