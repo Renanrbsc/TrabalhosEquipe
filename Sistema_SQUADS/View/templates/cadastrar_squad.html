@@ -18,18 +18,18 @@
             <p style = "margin-left: 15%; margin-right: 15%; text-align: center">* Todos os dados são obrigatórios!</p>
             <form action="/cadastrar/squad/inserir">
                 <div class="cadastro-center">
-                    <div>
-                        <label for="name">Nome Squad: </label>
+                    <fieldset>
+                        <legend>Nome Squad</legend>
                         <input type="text" id="name" name="nome" placeholder="Informe o Nome do Squad.."/>
-                    </div>
+                    </fieldset>
                     <br>
-                    <div>
-                        <label for="desc">Descrição: </label>
+                    <fieldset>
+                        <legend>Descrição</legend>
                         <textarea type="text" id="desc" name="desc" placeholder="Informe a descrição do squad.."></textarea>
-                    </div>
+                    </fieldset>
                     <br>
-                    <div>
-                        <label for="quant">Integrantes: </label>
+                    <fieldset>
+                        <legend>Integrantes</legend>
                         <select id="id_integ" name="integ">
                             <option value="0">Selecione uma quantidade</option>
                             <option value="1">1</option>
@@ -43,37 +43,37 @@
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select>
-                    </div>
+                    </fieldset>
                     <br>
-                    <div>
-                        <label for="back">Linguagem Back-end: </label>
+                    <fieldset>
+                        <legend>Linguagem Back-end</legend>
                         <select id="id_back" name="id_back">
                             <option value="">Selecione uma Linguagem Back-end</option>
                             {% for i in dados_back %}
                                 <option value="{{ i[0] }}">{{ i[0] }} - {{ i[1] }}</option>
                             {% endfor %}
                         </select>
-                    </div>
+                    </fieldset>
                     <br>
-                    <div>
-                        <label for="front">Framework Front-end: </label>
+                    <fieldset>
+                        <legend>Framework Front-end</legend>
                         <select id="id_front" name="id_front">
                             <option value="">Selecione um Framework Front-end</option>
                             {% for i in dados_front %}
                                 <option value="{{ i[0] }}">{{ i[0] }} - {{ i[1] }}</option>
                             {% endfor %}
                         </select>
-                    </div>
+                    </fieldset>
                     <br>
-                    <div>
-                        <label for="bd">Gerenciador Database: </label>
+                    <fieldset>
+                        <legend>Gerenciador Database</legend>
                         <select id="id_sgbd" name="id_sgbd">
                             <option value="">Selecione um Gerenciador de Database</option>
                             {% for i in dados_sgbd %}
                                 <option value="{{ i[0] }}">{{ i[0] }} - {{ i[1] }}</option>
                             {% endfor %}
                         </select>
-                    </div>
+                    </fieldset>
                     <br>
                     <input type="reset" value="Limpar">
                     <br>

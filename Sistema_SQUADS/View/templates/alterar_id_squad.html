@@ -46,18 +46,19 @@
             <form action="/alterar/squad/atualizado">
                 <input type="hidden" name="id" value="{{dados[0]}}">
                 <div class="cadastro-center">
-                    <div>
+                    <fieldset>
+                        <legend>Nome Squad</legend>
                         <label for="name">Nome Squad: </label>
                         <input type="text" name="nome" value="{{ dados[1] }}" placeholder="{{ dados[1] }}"/>
-                    </div>
+                    </fieldset>
                     <br>
-                    <div>
-                        <label for="desc">Descrição: </label>
+                    <fieldset>
+                        <legend>Descrição</legend>
                         <textarea type="text" name="desc" value="{{ dados[2] }}" placeholder="{{ dados[2] }}">{{ dados[2] }}</textarea>
-                    </div>
+                    </fieldset>
                     <br>
-                    <div>
-                        <label for="quant">Integrantes: </label>
+                    <fieldset>
+                        <legend>Integrantes</legend>
                         <select id="id_integ" name="integ" >
                             <option value="{{ dados[3] }}">{{ dados[3] }}</option>
                             <option value="0">0</option>
@@ -72,37 +73,37 @@
                             <option value="9">9</option>
                             <option value="10">10</option>
                         </select>
-                    </div>
+                    </fieldset>
                     <br>
-                    <div>
-                        <label for="back">ID_Backend: </label>
+                    <fieldset>
+                        <legend>Linguagem Back-end</legend>
                         <select id="id_back" name="id_back">
                             <option value="{{ dados[7] }}">{{ dados[7] }} - {{ dados[8] }}</option>
                             {% for i in dados_back %}
                                 <option value="{{ i[0] }}">{{ i[0] }} - {{ i[1] }}</option>
                             {% endfor %}
                         </select>
-                    </div>
+                    </fieldset>
                     <br>
-                    <div>
-                        <label for="front">ID_Frontend: </label>
+                    <fieldset>
+                        <legend>Framework Front-end</legend>
                         <select id="id_front" name="id_front" value="{{ dados[5] }}" placeholder="{{ dados[5] }}">
                             <option value="{{ dados[9] }}">{{ dados[9] }} - {{ dados[10] }}</option>
                             {% for i in dados_front %}
                                 <option value="{{ i[0] }}">{{ i[0] }} - {{ i[1] }}</option>
                             {% endfor %}
                         </select>
-                    </div>
+                    </fieldset>
                     <br>
-                    <div>
-                        <label for="bd">ID_SGBD: </label>
+                    <fieldset>
+                        <legend>Gerenciador Database</legend>
                         <select id="id_sgbd" name="id_sgbd" value="{{ dados[6] }}" placeholder="{{ dados[6] }}">
                             <option value="{{ dados[11] }}">{{ dados[11] }} - {{ dados[12] }}</option>
                             {% for i in dados_sgbd %}
                                 <option value="{{ i[0] }}">{{ i[0] }} - {{ i[1] }}</option>
                             {% endfor %}
                         </select>
-                    </div>
+                    </fieldset>
                     <br>
                     <input type="submit" class = 'cadastro-center' value="Enviar"/>
                 </div>
