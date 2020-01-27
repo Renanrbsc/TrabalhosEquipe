@@ -52,8 +52,7 @@ div.retangulo{
     
 }
 input{
-    width: auto;
-
+    width: 100%;
 }
 input[type=submit]{ 
     color:#fff;
@@ -79,6 +78,19 @@ fieldset{
     font-family: Courier New;
     font-size: 20px;
 }
+select{
+    width: 100%;
+
+}
+textarea{
+    width: 100%;
+
+}
+input[type=reset]{
+    width: 50%;
+
+}
+
 
 .center-link{
     color:#fff;
@@ -108,6 +120,10 @@ fieldset{
     margin: -130px 0 0 -210px; 
     position: absolute;
     top: 70%;  
+}
+#inputcenter{
+    width: auto;
+
 }
 
 
