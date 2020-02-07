@@ -1,0 +1,60 @@
+Oficial 1
+Oficial 2
+Comissaria 1
+Comissaria 2
+Prisioneiro
+Policial
+Piloto
+Chefe de Servico
+Oficial 1
+--------Viagem 1--------
+Oficial 1
+Oficial 2
+--------Viagem 2--------
+Oficial 1
+Oficial 2
+Piloto
+--------Viagem 3--------
+Oficial 1
+Oficial 2
+Piloto
+Comissaria 1
+--------Viagem 4--------
+Oficial 1
+Oficial 2
+Piloto
+Comissaria 1
+Comissaria 2
+--------Viagem 5--------
+Oficial 1
+Oficial 2
+Piloto
+Comissaria 1
+Comissaria 2
+Prisioneiro
+--------Viagem 6--------
+Oficial 1
+Oficial 2
+Piloto
+Comissaria 1
+Comissaria 2
+Prisioneiro
+Policial
+--------Viagem 6--------
+Oficial 1
+Oficial 2
+Comissaria 1
+Comissaria 2
+Prisioneiro
+Policial
+Piloto
+--------Viagem 7--------
+Oficial 1
+Oficial 2
+Comissaria 1
+Comissaria 2
+Prisioneiro
+Policial
+Piloto
+Chefe de Servico
+--------Viagem 7--------
