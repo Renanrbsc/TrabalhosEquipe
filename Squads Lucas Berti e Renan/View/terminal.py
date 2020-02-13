@@ -1,9 +1,9 @@
 import sys
-sys.path.append('C:/Users/900145/Documents/TrabalhosEquipe/Sistema_SQUADS')
-sys.path.append('C:/Users/900145/Documents/TrabalhosEquipe/Sistema_SQUADS')
-sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosEquipe/Sistema_SQUADS')
-sys.path.append('C:/Users/900159/Documents/GitHub/TrabalhosEquipe/Sistema_SQUADS')
-sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosEquipe/Sistema_SQUADS')
+sys.path.append('C:/Users/900145/Documents/TrabalhosEquipe/Squads Lucas Berti e Renan')
+sys.path.append('C:/Users/900145/Documents/TrabalhosEquipe/Squads Lucas Berti e Renan')
+sys.path.append('C:/Users/900159/Documents/github renan/TrabalhosEquipe/Squads Lucas Berti e Renan')
+sys.path.append('C:/Users/900159/Documents/GitHub/TrabalhosEquipe/Squads Lucas Berti e Renan')
+sys.path.append('C:/Users/Usuario/Documents/GitHub/TrabalhosEquipe/Squads Lucas Berti e Renan')
 
 from Controller.squads_controller import SquadsController
 from Controller.sgbds_controller import SgbdsController
