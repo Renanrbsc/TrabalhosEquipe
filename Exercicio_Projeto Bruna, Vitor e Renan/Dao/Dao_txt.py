@@ -9,7 +9,6 @@ class AmigoDao:
 				dado_tratado = dado_tratado.split(';')
 				Model_txt = ModelAmigo(dado_tratado)
 				Model_txt.tratar_dados()
-				Model = Model_txt.serialize()
-				dados_amigo.append(Model)
+				dados_amigo.append(Model_txt.serialize())
 		return dados_amigo
 
